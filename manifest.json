@@ -16,6 +16,17 @@
       "is_incremental": false
     },
     {
+      "type": "Resource",
+      "source_relative_path": "CNAME",
+      "output": {
+        "resource": {
+          "relative_path": "CNAME"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/developer-info/Best-practices-for-XML-documentation.md",
       "output": {
