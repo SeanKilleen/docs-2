@@ -85,10 +85,10 @@ Explicit tests are displayed in the gui as skipped.</p>
 <h5>Warning</h5>
 <p>While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.</p>
 </div>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <p>Using the console command-line to select tests, the following options will include any
 explicit tests that fall under the selection.</p>
-<pre><code>    --test=My.Namespace.Fixture.Method
+<pre><code class="lang-none">    --test=My.Namespace.Fixture.Method
     --test=My.Namespace.Fixture
     --test=My.Namespace
     --where test==My.Namespace.Fixture.Method
@@ -98,11 +98,11 @@ explicit tests that fall under the selection.</p>
     --where &quot;cat==X || cat==Y&quot;
 </code></pre>
 <p>However, the following options will <strong>not</strong> include explicit tests</p>
-<pre><code>    --where test!=My.Namespace.Fixture
+<pre><code class="lang-none">    --where test!=My.Namespace.Fixture
     --where cat!=X
 </code></pre>
-<h4 id="test-fixture-syntax">Test Fixture Syntax</h4>
-<h5 id="c">C#</h5>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<h3 id="c"><code>C#</code></h3>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -115,7 +115,7 @@ explicit tests that fall under the selection.</p>
   }
 }
 </code></pre>
-<h5 id="visual-basic">Visual Basic</h5>
+<h3 id="visual-basic">Visual Basic</h3>
 <pre><code class="lang-VB">Imports System
 Imports NUnit.Framework
 
@@ -127,7 +127,7 @@ Namespace NUnit.Tests
   End Class
 End Namespace
 </code></pre>
-<h5 id="c-1">C++</h5>
+<h3 id="c-1">C++</h3>
 <pre><code class="lang-cpp">using namespace System;
 using namespace NUnit::Framework;
 
@@ -147,8 +147,8 @@ namespace NUnitTests {
   // ...
 }
 </code></pre>
-<h4 id="test-syntax">Test Syntax</h4>
-<h5 id="c-2">C#</h5>
+<h2 id="test-syntax">Test Syntax</h2>
+<h3 id="c-2"><code>C#</code></h3>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -162,7 +162,7 @@ namespace NUnitTests {
     { /* ... */ }
 }
 </code></pre>
-<h5 id="visual-basic-1">Visual Basic</h5>
+<h3 id="visual-basic-1">Visual Basic</h3>
 <pre><code class="lang-vb">Imports System
 Imports NUnit.Framework
 
@@ -175,7 +175,7 @@ Namespace NUnit.Tests
   End Class
 End Namespace
 </code></pre>
-<h5 id="c-3">C++</h5>
+<h3 id="c-3">C++</h3>
 <pre><code class="lang-cpp"># using &lt;NUnit.Framework.dll&gt;
 using namespace System;
 using namespace NUnit::Framework;

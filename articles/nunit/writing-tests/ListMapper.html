@@ -79,9 +79,9 @@ shows two forms of the same assert.</p>
 <pre><code class="lang-csharp">string[] strings = new string[] { &quot;a&quot;, &quot;ab&quot;, &quot;abc&quot; };
 int[] lengths = new int[] { 1, 2, 3 };
 
-Assert.That(List.Map(strings).Property(&quot;Length&quot;), 
+Assert.That(List.Map(strings).Property(&quot;Length&quot;),
        Is.EqualTo(lengths));
-	   
+
 Assert.That(new ListMapper(strings).Property(&quot;Length&quot;),
        Is.EqualTo(lengths));
 </code></pre>

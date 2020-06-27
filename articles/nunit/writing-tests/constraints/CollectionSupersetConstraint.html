@@ -69,14 +69,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="collectionsuperset-constraint">CollectionSuperset Constraint</h1>
 
-<p><strong>CollectionSupersetConstraint</strong> tests that one <code>IEnumerable</code> is a superset of another. If the actual value passed does not implement <code>IEnumerable</code>, an exception is thrown.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>CollectionSupersetConstraint</code> tests that one <code>IEnumerable</code> is a superset of another. If the actual value passed does not implement <code>IEnumerable</code>, an exception is thrown.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">CollectionSupersetConstraint(IEnumerable)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.SupersetOf(IEnumerable)
 </code></pre>
-<h4 id="example-of-use">Example of Use</h4>
+<h2 id="example-of-use">Example of Use</h2>
 <pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
 Assert.That(iarray, Is.SupersetOf(new int[] { 1, 3 }));
 </code></pre>

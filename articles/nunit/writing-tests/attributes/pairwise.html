@@ -74,7 +74,7 @@ generate test cases in such a way that all possible pairs of
 values are used. This is a well-known approach for combatting
 the combinatorial explosion of test cases when more than
 two features (parameters) are involved.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <p>Using the Combinatorial attribute, the following test would be executed 12 (3x2x2) times.
 With <strong>Pairwise</strong> it is executed only enough times so that each possible pair is covered..</p>
 <pre><code class="lang-csharp">[Test, Pairwise]
@@ -87,22 +87,22 @@ public void MyTest(
 }
 </code></pre>
 <p>For this test, NUnit currently calls the method six times, producing the following output:</p>
-<pre><code>	a + y
-	a - x
-	b - y
-	b + x
-	c - x
-	c + y
+<pre><code class="lang-none">a + y
+a - x
+b - y
+b + x
+c - x
+c + y
 </code></pre>
 <p>Note that this is not the optimal output. The pairs (-, x) and (+, y)
 appear twice. NUnit uses a heuristic algorithm to reduce the number of test cases as much
 as it can. Improvements may be made in the future.</p>
-<h4 id="limitations">Limitations</h4>
+<h2 id="limitations">Limitations</h2>
 <p>When used on a generic method the programmer must ensure that all
 possible combinations of arguments are valid. When multiple parameters
 use the same generic type (e.g.: T) this may not be possible and the
 attribute may generate invalid test cases.</p>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="sequential.html">Sequential Attribute</a></li>
 <li><a href="combinatorial.html">Combinatorial Attribute</a></li>

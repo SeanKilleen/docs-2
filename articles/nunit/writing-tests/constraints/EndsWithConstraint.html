@@ -69,27 +69,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="endswith-constraint">EndsWith Constraint</h1>
 
-<p><strong>EndsWithConstraint</strong> tests for an ending string.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>EndsWithConstraint</code> tests for an ending string.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EndsWithConstraint(string expected)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Does.EndWith(string expected)
 EndsWith(string expected)
 </code></pre>
-<h4 id="modifiers">Modifiers</h4>
+<h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;
 
 Assert.That(phrase, Does.EndWith(&quot;!&quot;));
 Assert.That(phrase, Does.EndWith(&quot;PASSING!&quot;).IgnoreCase);
 </code></pre>
-<h4 id="notes">Notes</h4>
+<h2 id="notes">Notes</h2>
 <ol>
-<li><strong>EndsWith</strong> may appear only in the body of a constraint
-expression or when the inherited syntax is used.</li>
+<li><strong>EndsWith</strong> may appear only in the body of a constraint expression or when the inherited syntax is used.</li>
 </ol>
 </article>
           </div>

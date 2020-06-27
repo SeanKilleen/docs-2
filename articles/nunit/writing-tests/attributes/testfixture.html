@@ -69,19 +69,15 @@
             <article class="content wrap" id="_content" data-uid="testfixtureattribute">
 <h1 id="testfixture">TestFixture</h1>
 
-<p>This is the attribute that marks a class that contains tests and, optionally,
-setup or teardown methods.</p>
+<p>This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods.</p>
 <p>Most restrictions on a class that is used as a test fixture have now been
 eliminated. A test fixture class:</p>
 <ul>
 <li>May be public, protected, private or internal.</li>
 <li>May be a static class.</li>
-<li>May be generic, so long as any type parameters are provided or
-can be inferred from the actual arguments.</li>
-<li>May not be abstract - although the attribute may be applied to an
-abstract class intended to serve as a base class for test fixtures.</li>
-<li>If no arguments are provided with the TestFixtureAttribute, the class
-must have a default constructor.</li>
+<li>May be generic, so long as any type parameters are provided or can be inferred from the actual arguments.</li>
+<li>May not be abstract - although the attribute may be applied to an abstract class intended to serve as a base class for test fixtures.</li>
+<li>If no arguments are provided with the TestFixtureAttribute, the class must have a default constructor.</li>
 <li>If arguments are provided, they must match one of the constructors.</li>
 </ul>
 <p>If any of these restrictions are violated, the class is not runnable
@@ -92,7 +88,7 @@ since NUnit may construct the object multiple times in the course of a session.<
 for non-parameterized, non-generic fixtures. So long as the class contains
 at least one method marked with the <strong>Test</strong>, <strong>TestCase</strong> or
 <strong>TestCaseSource</strong> attribute, it will be treated as a test fixture.</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -105,7 +101,7 @@ at least one method marked with the <strong>Test</strong>, <strong>TestCase</str
   }
 }
 </code></pre>
-<h4 id="inheritance">Inheritance</h4>
+<h2 id="inheritance">Inheritance</h2>
 <p>The <strong>TestFixtureAttribute</strong> may be applied to a base class and is
 inherited by any derived classes. This includes any abstract base class,
 so the well-known Abstract Fixture pattern may be implemented if desired.</p>
@@ -136,7 +132,7 @@ public class DerivedFixture&lt;T&gt; : AbstractFixtureBase
     /* ... */
 }
 </code></pre>
-<h4 id="parameterized-test-fixtures">Parameterized Test Fixtures</h4>
+<h2 id="parameterized-test-fixtures">Parameterized Test Fixtures</h2>
 <p>Test fixtures may take constructor arguments.
 Argument values are specified as arguments to the <strong>TestFixture</strong>
 attribute. NUnit will construct a separate instance of the fixture
@@ -146,7 +142,7 @@ Set the <strong>Ignore</strong> named parameter of the reason for ignoring the i
 <p>Individual fixture instances may be given categories as well. Set the <strong>Category</strong>
 named parameter of the attribute to the name of the category or to a comma-separated
 list of categories.</p>
-<h4 id="example-1">Example</h4>
+<h3 id="example-1">Example</h3>
 <p>The following test fixture would be instantiated by NUnit three times,
 passing in each set of arguments to the appropriate constructor. Note
 that there are three different constructors, matching the data types
@@ -159,7 +155,7 @@ public class ParameterizedTestFixture
     private string eq1;
     private string eq2;
     private string neq;
-    
+
     public ParameterizedTestFixture(string eq1, string eq2, string neq)
     {
         this.eq1 = eq1;
@@ -194,14 +190,14 @@ public class ParameterizedTestFixture
     }
 }
 </code></pre>
-<h4 id="generic-test-fixtures">Generic Test Fixtures</h4>
+<h2 id="generic-test-fixtures">Generic Test Fixtures</h2>
 <p>You may also use a generic class as a test fixture.
 In order for NUnit to instantiate the fixture, you must either specify the
 types to be used as arguments to <strong>TestFixtureAttribute</strong> or use the
 named parameter <strong>TypeArgs=</strong> to specify them. NUnit will construct a
 separate instance of the fixture for each <strong>TestFixtureAttribute</strong>
 you provide.</p>
-<h4 id="example-2">Example</h4>
+<h3 id="example-2">Example</h3>
 <p>The following test fixture would be instantiated by NUnit twice,
 once using an <code>ArrayList</code> and once using a <code>List&lt;int&gt;</code>.</p>
 <pre><code class="lang-csharp">[TestFixture(typeof(ArrayList))]
@@ -224,16 +220,16 @@ public class IList_Tests&lt;TList&gt; where TList : IList, new()
   }
 }
 </code></pre>
-<h4 id="generic-test-fixtures-with-parameters">Generic Test Fixtures with Parameters</h4>
+<h3 id="generic-test-fixtures-with-parameters">Generic Test Fixtures with Parameters</h3>
 <p>If a Generic fixture, uses constructor arguments, there are three
 approaches to telling NUnit which arguments are type parameters
 and which are normal constructor parameters.</p>
-<ol>
+<ul>
 <li>Specify both sets of parameters as arguments to the <strong>TestFixtureAttribute</strong>.
 Leading <strong>System.Type</strong> arguments are used as type parameters, while
 any remaining arguments are used to construct the instance. In the
 following example, this leads to some obvious duplication...</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">[TestFixture(typeof(double), typeof(int), 100.0, 42)]
 [TestFixture(typeof(int) typeof(double), 42, 100.0)]
 public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
@@ -255,12 +251,12 @@ public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
     }
 }
 </code></pre>
-<ol start="2">
+<ul>
 <li>Specify normal parameters as arguments to <strong>TestFixtureAttribute</strong>
 and use the named parameter <strong>TypeArgs=</strong> to specify the type
 arguments. Again, for this example, the type info is duplicated, but
 it is at least more cleanly separated from the normal arguments...</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">[TestFixture(100.0, 42, TypeArgs=new Type[] { typeof(double), typeof(int) })]
 [TestFixture(42, 100.0, TypeArgs=new Type[] { typeof(int), typeof(double) })]
 public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
@@ -282,12 +278,12 @@ public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
     }
 }
 </code></pre>
-<ol start="3">
+<ul>
 <li>In some cases, when the constructor makes use of all the type parameters
 NUnit may simply be able to deduce them from the arguments provided.
 That's the case here and the following is the preferred way to
 write this example...</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">[TestFixture(100.0, 42)]
 [TestFixture(42, 100.0)]
 public class DeduceTypeArgsFromArgs&lt;T1, T2&gt;

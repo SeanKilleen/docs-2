@@ -69,15 +69,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="attributeexists-constraint">AttributeExists Constraint</h1>
 
-<p><strong>AttributeExistsConstraint</strong> tests for the existence of an attribute on a Type.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>AttributeExistsConstraint</code> tests for the existence of an attribute on a Type.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">AttributeExistsConstraint(Type type)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Has.Attribute(typeof(TestFixtureAttribute))
 Has.Attribute&lt;TestFixtureAttribute&gt;()
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(someObject, Has.Attribute(typeof(TestFixtureAttribute)));
 Assert.That(someObject, Has.Attribute&lt;TestFixtureAttribute&gt;());
 </code></pre>

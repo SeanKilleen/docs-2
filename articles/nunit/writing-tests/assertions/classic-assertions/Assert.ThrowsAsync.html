@@ -115,11 +115,11 @@ public class UsingReturnValue
     MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
 
     Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
-    Assert.That(ex.MyParam, Is.EqualTo(42)); 
+    Assert.That(ex.MyParam, Is.EqualTo(42));
   }
 }
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Catch.html">Assert.Catch</a></li>
 <li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>

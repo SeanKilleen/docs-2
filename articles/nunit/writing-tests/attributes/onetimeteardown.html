@@ -78,7 +78,7 @@ of an inheritance hierarchy, as explained below.</p>
 <p>So long as any OneTimeSetUp method runs without error, the OneTimeTearDown method is
 guaranteed to run. It will not run if a OneTimeSetUp method fails or throws an
 exception.</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -101,14 +101,14 @@ exception.</p>
   }
 }
 </code></pre>
-<h3 id="inheritance">Inheritance</h3>
+<h2 id="inheritance">Inheritance</h2>
 <p>The OneTimeTearDown attribute is inherited from any base class. Therefore, if a base
 class has defined a OneTimeTearDown method, that method will be called
 after any test methods in the derived class.</p>
 <p>You may define a OneTimeTearDown method
 in the base class and another in the derived class. NUnit will call base
 class OneTimeTearDown methods after those in the derived classes.</p>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><p>Although it is possible to define multiple OneTimeTearDown methods
 in the same class, you should rarely do so. Unlike methods defined in
@@ -120,7 +120,7 @@ are executed is not guaranteed.</p>
 <li><p>OneTimeTearDown methods run in the context of the TestFixture or SetUpFixture, which is separate from the context of any individual test cases. It's important to keep this in mind when using <a class="xref" href="../TestContext.html">TestContext</a> methods and properties within the method.</p>
 </li>
 </ol>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="setup.html">SetUp Attribute</a></li>
 <li><a href="teardown.html">TearDown Attribute</a></li>

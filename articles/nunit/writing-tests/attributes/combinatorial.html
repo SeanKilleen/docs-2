@@ -73,7 +73,7 @@
 generate test cases for all possible combinations of the individual
 data items provided for the parameters of a test. Since this is the
 default, use of this attribute is optional.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <p>The following test will be executed six times:</p>
 <pre><code class="lang-csharp">[Test, Combinatorial]
 public void MyTest(
@@ -91,12 +91,12 @@ MyTest(2, &quot;B&quot;)
 MyTest(3, &quot;A&quot;)
 MyTest(3, &quot;B&quot;)
 </code></pre>
-<h4 id="limitations">Limitations</h4>
+<h2 id="limitations">Limitations</h2>
 <p>When used on a generic method the programmer must ensure that all
 possible combinations of arguments are valid. When multiple parameters
 use the same generic type (e.g.: T) this may not be possible and the
 attribute may generate invalid test cases.</p>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="sequential.html">Sequential Attribute</a></li>
 <li><a href="pairwise.html">Pairwise Attribute</a></li>

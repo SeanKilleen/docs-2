@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="valuesattribute">
 <h1 id="values">Values</h1>
 
-<p>The <strong>ValuesAttribute</strong> is used to specify a set of values to be provided
+<p>The <code>ValuesAttribute</code> is used to specify a set of values to be provided
 for an individual parameter of a parameterized test method. Since
 NUnit combines the data provided for each parameter into a set of
 test cases, data must be provided for all parameters if it is
@@ -78,7 +78,7 @@ provided for any of them.</p>
 of the data values provided on parameters - the combinatorial approach.
 This default may be modified by use of specific attributes on the
 test method itself.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">[Test]
 public void MyTest([Values(1, 2, 3)] int x, [Values(&quot;A&quot;, &quot;B&quot;)] string s)
 {
@@ -93,7 +93,7 @@ MyTest(2, &quot;B&quot;)
 MyTest(3, &quot;A&quot;)
 MyTest(3, &quot;B&quot;)
 </code></pre>
-<h4 id="values-with-enum-or-boolean">Values with Enum or Boolean</h4>
+<h2 id="values-with-enum-or-boolean">Values with Enum or Boolean</h2>
 <p>The values attribute works in a special way with Enums and Boolean parameters.</p>
 <p>When used without any arguments, the <strong>[Values]</strong> attribute on an enum parameter
 will automatically include all possible values of the enumeration.</p>
@@ -111,7 +111,7 @@ public void MyBoolTest([Values]bool value)
     //...
 }
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="range.html">Range Attribute</a></li>
 <li><a href="random.html">Random Attribute</a></li>

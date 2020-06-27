@@ -69,15 +69,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="assignablefrom-constraint">AssignableFrom Constraint</h1>
 
-<p><strong>AssignableFromConstraint</strong> tests that one type is assignable from another</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>AssignableFromConstraint</code> tests that one type is assignable from another</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">AssignableFromConstraint(Type)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.AssignableFrom(Type)
 Is.AssignableFrom&lt;T&gt;()
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(&quot;Hello&quot;, Is.AssignableFrom(typeof(string)));
 Assert.That(5, Is.Not.AssignableFrom(typeof(string)));
 </code></pre>

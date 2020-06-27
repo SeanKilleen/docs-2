@@ -87,7 +87,7 @@ Assert.That(&quot;not a null&quot;, myConstraint); // Passes
 Assert.That(&quot;not a null&quot;, myConstraint); // Passes
 Assert.That(&quot;not a null&quot;, myConstraint); // Passes
 </code></pre>
-<h3 id="technical-explanation">Technical Explanation</h3>
+<h2 id="technical-explanation">Technical Explanation</h2>
 <p>In the original example, the value assigned to myConstraint is
 known as an <strong>unresolved</strong> constraint. In fact, it's an
 unresolved NullConstraint, because that was the last constraint
@@ -109,21 +109,21 @@ of resolving the constraint, in this case</p>
 <p>That's what <strong>ReusableConstraint</strong> does for us. It resolves
 the full expression and saves the result. Then it passes all
 operations on to that saved result.</p>
-<h3 id="when-to-use-it">When to Use It</h3>
+<h2 id="when-to-use-it">When to Use It</h2>
 <p>Use this constraint any time you want to reuse a constraint
 expression and you'll be safe.</p>
 <p>If you like to take chances, you'll find that you can
 avoid using it in the following cases...</p>
-<ol>
+<ul>
 <li>With a simple constraint involving no operators, like...</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">Constraint myConstraint = Is.Null;
 Constraint myConstraint = Is.EqualTo(42);
 </code></pre>
-<ol start="2">
+<ul>
 <li>With any constraint you construct using new, without
 using the &quot;dotted&quot; constraint syntax...</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">Constraint myConstraint = new NotConstraint(new NullConstraint());
 Constraint myConstraint = new AndConstraint(
     new GreaterThanConstraint(0),

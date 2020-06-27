@@ -70,7 +70,7 @@
 <h1 id="order">Order</h1>
 
 <p>The <strong>OrderAttribute</strong> may be placed on a test method or fixture to specify the order in which tests are run within the fixture or other suite in which they are contained. Ordering is given by the required <code>order</code> argument to the attribute, an <code>int</code>.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <p>The following tests will be run in the order:</p>
 <ul>
 <li>TestA</li>
@@ -90,18 +90,13 @@
     public void TestC() { /* ... */ }
 }
 </code></pre>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ol>
-<li><p>As stated, ordering is local to the test that contains the ordered tests. For test cases (methods) ordering applies within the containing fixture. For fixtures it applies within the containing namespace. There is no facility in NUnit to order tests globally.</p>
-</li>
-<li><p>Tests with an <code>OrderAttribute</code> argument are started before any tests without the attribute.</p>
-</li>
-<li><p>Ordered tests are started in ascending order of the <code>order</code> argument.</p>
-</li>
-<li><p>Among tests with the same <code>order</code> value or without the attribute, execution order is indeterminate.</p>
-</li>
-<li><p>Tests do not wait for prior tests to finish. If multiple threads are in use, a test may be started while some earlier tests are still being run.</p>
-</li>
+<li>As stated, ordering is local to the test that contains the ordered tests. For test cases (methods) ordering applies within the containing fixture. For fixtures it applies within the containing namespace. There is no facility in NUnit to order tests globally.</li>
+<li>Tests with an <code>OrderAttribute</code> argument are started before any tests without the attribute.</li>
+<li>Ordered tests are started in ascending order of the <code>order</code> argument.</li>
+<li>Among tests with the same <code>order</code> value or without the attribute, execution order is indeterminate.</li>
+<li>Tests do not wait for prior tests to finish. If multiple threads are in use, a test may be started while some earlier tests are still being run.</li>
 </ol>
 </article>
           </div>

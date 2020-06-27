@@ -69,23 +69,20 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="and-constraint">And Constraint</h1>
 
-<p><strong>AndConstraint</strong> combines two other constraints and succeeds only if they both succeed.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>AndConstraint</code> combines two other constraints and succeeds only if they both succeed.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">AndConstraint(Constraint left, Constraint right)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">&lt;Constraint&gt;.And.&lt;Constraint&gt;
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0));
 </code></pre>
-<h4 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h4>
-<p>Note that the constraint evaluates the sub-constraints left to right, meaning that
-<code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>,
-but fail for <code>null</code> with the message <code>Expected: not null and greater than 9. But was: null</code>.
-<code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
+<h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
+<p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>, but fail for <code>null</code> with the message <code>Expected: not null and greater than 9. But was: null</code>. <code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
 <p>The <strong>OrConstraint</strong> has precedence over the <strong>AndConstraint</strong>.</p>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="OrConstraint.html">OrConstraint</a></li>
 </ul>

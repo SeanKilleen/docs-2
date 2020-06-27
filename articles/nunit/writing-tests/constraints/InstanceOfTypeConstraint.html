@@ -69,15 +69,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="instanceoftype-constraint">InstanceOfType Constraint</h1>
 
-<p><strong>InstanceOfTypeConstraint</strong> tests that an object is of the type supplied or a derived type.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>InstanceOfTypeConstraint</code> tests that an object is of the type supplied or a derived type.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">InstanceOfTypeConstraint(Type)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.InstanceOf(Type)
 Is.InstanceOf&lt;T&gt;()
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(&quot;Hello&quot;, Is.InstanceOf(typeof(string)));
 Assert.That(5, Is.Not.InstanceOf(typeof(string)));
 

@@ -69,14 +69,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="not-constraint">Not Constraint</h1>
 
-<p><strong>NotConstraint</strong> reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the base constraint succeeds, NotConstraint fails.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>NotConstraint</code> reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the base constraint succeeds, NotConstraint fails.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">NotConstraint()
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.Not...
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(collection, Is.Not.Unique);
 Assert.That(2 + 2, Is.Not.EqualTo(5));
 </code></pre>

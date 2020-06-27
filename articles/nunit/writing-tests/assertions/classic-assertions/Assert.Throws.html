@@ -108,7 +108,7 @@ public class AssertThrowsTests
 
     // Using an anonymous delegate
     Assert.Throws&lt;ArgumentException&gt;(
-	  delegate { throw new ArgumentException(); });
+    delegate { throw new ArgumentException(); });
 
     // Using a Lambda expression
     Assert.Throws&lt;ArgumentException&gt;(
@@ -133,7 +133,7 @@ public class UsingReturnValue
       delegate { throw new MyException(&quot;message&quot;, 42); });
 
     Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
-    Assert.That(ex.MyParam, Is.EqualTo(42)); 
+    Assert.That(ex.MyParam, Is.EqualTo(42));
   }
 }
 </code></pre>
@@ -153,7 +153,7 @@ public class UsingConstraint
 }
 </code></pre>
 <p>Use the form that matches your style of coding.</p>
-<h3 id="exact-versus-derived-types">Exact Versus Derived Types</h3>
+<h2 id="exact-versus-derived-types">Exact Versus Derived Types</h2>
 <p>When used with a Type argument, <strong>Assert.Throws</strong> requires
 that exact type to be thrown. If you want to test for any
 derived Type, use one of the forms that allows specifying
@@ -174,7 +174,7 @@ Assert.Catch&lt;ApplicationException&gt;(code);
 // Allow any kind of exception
 Assert.Catch(code);
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Catch.html">Assert.Catch</a></li>
 <li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>

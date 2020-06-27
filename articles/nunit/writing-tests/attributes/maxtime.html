@@ -72,14 +72,14 @@
 <p>The <strong>MaxTimeAttribute</strong> is used on test methods to specify a maximum time
 in milliseconds for a test case. If the test case takes longer than the
 specified time to complete, it is reported as a failure.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">[Test, MaxTime(2000)]
 public void TimedTest()
 {
     /* ... */
 }
 </code></pre>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><p>Any assertion failures take precedence over the elapsed time check.</p>
 </li>

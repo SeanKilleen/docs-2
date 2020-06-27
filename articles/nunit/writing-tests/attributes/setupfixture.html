@@ -75,10 +75,8 @@ namespace. The class may contain at most one method marked with the
 OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.</p>
 <p>There are a few restrictions on a class that is used as a setup fixture.</p>
 <ul>
-<li><p>It must be a publicly exported type or NUnit will not see it.</p>
-</li>
-<li><p>It must have a default constructor or NUnit will not be able to construct it.</p>
-</li>
+<li>It must be a publicly exported type or NUnit will not see it.</li>
+<li>It must have a default constructor or NUnit will not be able to construct it.</li>
 </ul>
 <p>The OneTimeSetUp method in a SetUpFixture is executed once before any of the fixtures
 contained in its namespace. The OneTimeTearDown method is executed once after all the
@@ -89,7 +87,7 @@ individual or fixture teardowns have completed execution.</p>
 <p>Multiple SetUpFixtures may be created in a given namespace. The order of execution
 of such fixtures is indeterminate.</p>
 <p>A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">using System;
 using NUnit.Framework;
 
@@ -98,17 +96,17 @@ namespace NUnit.Tests
   [SetUpFixture]
   public class MySetUpClass
   {
-	[OneTimeSetUp]
-	public void RunBeforeAnyTests()
-	{
-	  // ...
-	}
+    [OneTimeSetUp]
+    public void RunBeforeAnyTests()
+    {
+      // ...
+    }
 
-	[OneTimeTearDown]
-	public void RunAfterAnyTests()
-	{
-	  // ...
-	}
+    [OneTimeTearDown]
+    public void RunAfterAnyTests()
+    {
+      // ...
+    }
   }
 }
 </code></pre>
@@ -117,7 +115,7 @@ namespace NUnit.Tests
 <p>Prior to NUnit 3.0, SetUpFixture used the SetUp and TearDown attributes rather than OneTimeSetUp and OneTimeTearDown.
 The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.</p>
 </div>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="setup.html">SetUp Attribute</a></li>
 <li><a href="teardown.html">TearDown Attribute</a></li>

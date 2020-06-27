@@ -69,21 +69,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="collectionequivalent-constraint">CollectionEquivalent Constraint</h1>
 
-<p><strong>CollectionEquivalentConstraint</strong> tests that two <code>IEnumerables</code> are equivalent - that they contain
+<p><code>CollectionEquivalentConstraint</code> tests that two <code>IEnumerables</code> are equivalent - that they contain
 the same items, in any order. If the actual value passed does not implement <code>IEnumerable</code> an exception is thrown.</p>
-<h4 id="constructor">Constructor</h4>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">CollectionEquivalentConstraint(IEnumerable other)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.EquivalentTo(IEnumerable other)
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
 string[] sarray = new string[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
 Assert.That(new string[] { &quot;c&quot;, &quot;a&quot;, &quot;b&quot; }, Is.EquivalentTo(sarray));
 Assert.That(new int[] { 1, 2, 2 }, Is.Not.EquivalentTo(iarray));
 </code></pre>
-<h4 id="notes">Notes</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li>To compare items in order, use Is.EqualTo().</li>
 </ol>

@@ -69,16 +69,16 @@
             <article class="content wrap" id="_content" data-uid="SameAsConstraint">
 <h1 id="sameas-constraint">SameAs Constraint</h1>
 
-<p>A SameAsConstraint is used to test whether the object passed
+<p>A <code>SameAsConstraint</code> is used to test whether the object passed
 as an actual value has the same identity as the object supplied
 in its constructor.</p>
-<h4 id="constructor">Constructor</h4>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">SameAsConstraint(object expected)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.SameAs(object expected)
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Exception ex1 = new Exception();
 Exception ex2 = ex1;
 Assert.That(ex2, Is.SameAs(ex1));

@@ -78,7 +78,7 @@ combinations.</p>
 <p>If parameter data is provided by multiple attributes, the order in which NUnit uses the data items is not guaranteed. However,
 it can be expected to remain constant for a given runtime and operating system. For best results with <strong>SequentialAttribute</strong> use only one data attribute on each parameter.</p>
 </div>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <p>The following test will be executed three times.</p>
 <pre><code class="lang-csharp">[Test, Sequential]
 public void MyTest(
@@ -93,7 +93,7 @@ public void MyTest(
 MyTest(2, &quot;B&quot;)
 MyTest(3, null)
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="combinatorial.html">Combinatorial Attribute</a></li>
 <li><a href="pairwise.html">Pairwise Attribute</a></li>

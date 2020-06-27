@@ -69,19 +69,19 @@
             <article class="content wrap" id="_content" data-uid="ThrowsConstraint">
 <h1 id="throws-constraint">Throws Constraint</h1>
 
-<p><strong>ThrowsConstraint</strong> is used to test that some code, represented as a delegate,
+<p><code>ThrowsConstraint</code> is used to test that some code, represented as a delegate,
 throws a particular exception. It may be used alone, to merely test the type
 of constraint, or with an additional constraint to be applied to the exception
 specified as an argument.</p>
 <p>The related <a href="ThrowsNothingConstraint.html">ThrowsNothingConstraint</a> simply asserts that the delegate
 does not throw an exception.</p>
-<h4 id="constructors">Constructors</h4>
+<h2 id="constructors">Constructors</h2>
 <pre><code class="lang-csharp">ThrowsConstraint(Type expectedType)
 ThrowsConstraint&lt;T&gt;()
 ThrowsConstraint(Type expectedType, Constraint constraint)
 ThrowsConstraint&lt;T&gt;(Constraint constraint)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Throws.Exception
 Throws.TargetInvocationException
 Throws.ArgumentException
@@ -93,7 +93,7 @@ Throws.InstanceOf(Type expectedType)
 Throws.InstanceOf&lt;T&gt;()
 Throws.InnerException
 </code></pre>
-<h3 id="examples-of-use">Examples of Use</h3>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;());
 Assert.That(SomeMethod, Throws.Exception.TypeOf&lt;ArgumentException&gt;());
 Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;()
@@ -103,7 +103,7 @@ Assert.That(SomeMethod, Throws.TargetInvocationException
                     .With.InnerException.TypeOf&lt;ArgumentException&gt;());
 Assert.That(() =&gt; { throw new ArgumentException(); }, Throws.ArgumentException);
 </code></pre>
-<h4 id="notes">Notes</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><p><strong>Throws.Exception</strong> may be followed by further constraints,
 which are applied to the exception itself as shown in the last two

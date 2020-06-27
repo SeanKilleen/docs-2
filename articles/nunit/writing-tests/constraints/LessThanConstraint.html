@@ -69,23 +69,22 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="lessthan-constraint">LessThan Constraint</h1>
 
-<p><strong>LessThanConstraint</strong> tests that one value is less than another.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>LessThanConstraint</code> tests that one value is less than another.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">LessThanConstraint(object expected)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.LessThan(object expected)
 Is.Negative // Equivalent to Is.LessThan(0)
 </code></pre>
-<h4 id="modifiers">Modifiers</h4>
+<h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...Using(IComparer comparer)
 ...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(3, Is.LessThan(7));
-Assert.That(myOwnObject, 
-    Is.LessThan(theExpected).Using(myComparer));
+Assert.That(myOwnObject, Is.LessThan(theExpected).Using(myComparer));
 Assert.That(-5, Is.Negative);
 </code></pre>
 </article>

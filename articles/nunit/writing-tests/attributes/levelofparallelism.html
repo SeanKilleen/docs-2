@@ -74,13 +74,13 @@ parallelism, that is, the maximum number of worker threads executing tests in th
 It may be overridden using a command-line option in the console runner.</p>
 <p>This attribute is optional. If it is not specified, NUnit uses the processor count or 2,
 whichever is greater. For example, on a four processor machine the default value is 4.</p>
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h2>
 <p>The following code, which might be placed in AssemblyInfo.cs, sets the level of parallelism to 3:</p>
 <pre><code class="lang-csharp">[assembly:LevelOfParallelism(3)]
 </code></pre>
-<h4 id="platform-support">Platform Support</h4>
+<h2 id="platform-support">Platform Support</h2>
 <p>Parallel execution is supported by the NUnit framework on desktop .NET runtimes. It is not supported in our Portable or .NET Standard builds at this time, although the attributes are recognized without error in order to allow use in projects that build against multiple targets.</p>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="parallelizable.html">Parallelizable Attribute</a></li>
 </ul>

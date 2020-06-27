@@ -69,23 +69,22 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="empty-constraint">Empty Constraint</h1>
 
-<p><strong>EmptyConstraint</strong> tests that an object is an empty string, directory or collection.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>EmptyConstraint</code> tests that an object is an empty string, directory or collection.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EmptyConstraint()
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.Empty
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(aString, Is.Empty);
 Assert.That(dirInfo, Is.Empty);
 Assert.That(collection, Is.Empty);
 </code></pre>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ul>
 <li><strong>EmptyConstraint</strong> creates and uses either an <a href="EmptyStringConstraint.html">EmptyStringConstraint</a>,
-<a href="EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a> or <a href="EmptyCollectionConstraint.html">EmptyCollectionConstraint</a> depending on
-the argument tested.</li>
+<a href="EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a> or <a href="EmptyCollectionConstraint.html">EmptyCollectionConstraint</a> depending on the argument tested.</li>
 <li>A <code>DirectoryInfo</code> argument is required in order to test for an empty directory.
 To test whether a string represents a directory path, you must first construct
 a <code>DirectoryInfo</code>.</li>

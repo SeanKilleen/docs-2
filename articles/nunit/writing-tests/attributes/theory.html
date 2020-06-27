@@ -79,13 +79,11 @@ makes a general statement that all of its assertions will pass
 for all arguments satisfying certain assumptions.</p>
 <p>Theories are implemented in NUnit as non-generic
 methods within a <strong>TestFixture</strong>, which are annotated
-with the <strong>TheoryAttribute</strong>. Theory methods must always have
-arguments and therefore appears quite similar to <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a>
-at first glance. However, a Theory incorporates additional data sources
-for its arguments and allows special processing for assumptions
+with the <strong>TheoryAttribute</strong>. Theory methods must always have arguments and therefore appears quite similar to <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a>
+at first glance. However, a Theory incorporates additional data sources for its arguments and allows special processing for assumptions
 about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.</p>
-<h4 id="data-for-theories">Data for Theories</h4>
+<h2 id="data-for-theories">Data for Theories</h2>
 <p>The primary source of data for a <strong>Theory</strong> is the
 <a href="datapoint.html">Datapoint Attribute</a> or <a href="datapointsource.html">DatapointSource Attribute</a>.
 NUnit will use any class members of the required types, which are annotated
@@ -107,7 +105,7 @@ values for the argument.</p>
 <h5>Note</h5>
 <p>Because NUnit searches for datapoints based on the type of the argument, generic methods may not currently be used as theories. This limitation may be removed in a future release. See below for a workaround using a generic fixture.</p>
 </div>
-<h4 id="assumptions">Assumptions</h4>
+<h2 id="assumptions">Assumptions</h2>
 <p>The theory itself is responsible for ensuring that all data supplied
 meets its assumptions. It does this by use of the
 <strong>Assume.That(...)</strong> construct, which works just like
@@ -117,18 +115,15 @@ returns an Inconclusive result, rather than a Success or Failure.</p>
 <p>The overall result of executing a Theory over a set of test cases is
 determined as follows:</p>
 <ul>
-<li><p>If the assumptions are violated for <strong>all</strong> test cases, then the Theory itself is marked as a failure.</p>
-</li>
-<li><p>If any Assertion fails, the Theory itself fails.</p>
-</li>
-<li><p>If at least <strong>some</strong> cases pass the stated assumptions, and there are <strong>no</strong> assertion failures or exceptions, then the Theory passes.</p>
-</li>
+<li>If the assumptions are violated for <strong>all</strong> test cases, then the Theory itself is marked as a failure.</li>
+<li>If any Assertion fails, the Theory itself fails.</li>
+<li>If at least <strong>some</strong> cases pass the stated assumptions, and there are <strong>no</strong> assertion failures or exceptions, then the Theory passes.</li>
 </ul>
 <p>Since the user does not generally care about inconclusive cases under
 a theory, they are not normally displayed in the Gui. For situations
 where they are needed - such as debugging - the context menu for the
 theory provides an option to display them.</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <p>In the following example, the Theory SquareRootDefinition
 verifies that the implementation of square root satisfies
 the following definition:</p>
@@ -154,7 +149,7 @@ the original number.</p>
     }
 }
 </code></pre>
-<h4 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h4>
+<h2 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h2>
 <p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as
 a parameter type or not generic, since <code>T</code> has been resolved to an actual
 Type in instantiating the fixture instance. You may use such methods as
@@ -177,7 +172,7 @@ public class TheorySampleTestsGeneric&lt;T&gt;
     }
 }
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="datapoint.html">Datapoint Attribute</a></li>
 <li><a href="datapointsource.html">DatapointSource Attribute</a></li>

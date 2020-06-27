@@ -69,14 +69,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="test">Test</h1>
 
-<p>The Test attribute is one way of marking a method inside a TestFixture class
+<p>The <code>Test</code> attribute is one way of marking a method inside a TestFixture class
 as a test. It is normally used for simple (non-parameterized) tests but may
 also be applied to parameterized tests without causing any extra test cases
 to be generated. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for more info.</p>
 <p>The test method may be either an instance or a static method.</p>
-<p>Test methods targeting .Net 4.0 or higher may be
-marked as <strong>async</strong> and NUnit will wait for the method to complete
-before recording the result and moving on to the next test. Async
+<p>Test methods targeting .Net 4.0 or higher may be marked as <strong>async</strong> and NUnit will wait for the method to complete before recording the result and moving on to the next test. Async
 test methods must return <code>Task</code> if no value is returned,
 or <code>Task&lt;T&gt;</code> if a value of type T is returned.</p>
 <p>If the programmer marks a test method that does not have the correct signature
@@ -87,7 +85,7 @@ named parameter to the Test attribute. This expected return value will be
 checked for equality with the return value of the test method.</p>
 <p>The test <code>Description</code> may be specified as a named parameter. This is exactly equivalent
 to using the <code>DescriptionAttribute</code> on the test.</p>
-<h4 id="examples">Examples:</h4>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -115,14 +113,14 @@ to using the <code>DescriptionAttribute</code> on the test.</p>
     [Test]
     public async Task AddAsync()
     { /* ... */ }
-   
+
     // Test with an expected result
     [Test(ExpectedResult = 4)]
     public int TestAdd()
     {
         return 2 + 2;
     }
-   
+
     // Async test with an expected result
     [Test(ExpectedResult = 4)]
     public async Task&lt;int&gt; TestAdd()

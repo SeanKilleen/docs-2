@@ -69,24 +69,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="startswith-constraint">StartsWith Constraint</h1>
 
-<p><strong>StartsWithConstraint</strong> tests for an initial string.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>StartsWithConstraint</code> tests for an initial string.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">StartsWithConstraint(string expected)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Does.StartWith(string expected)
 StartsWith(string expected)
 </code></pre>
-<h4 id="modifiers">Modifiers</h4>
+<h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;
 
 Assert.That(phrase, Does.StartWith(&quot;Make&quot;));
 Assert.That(phrase, Does.Not.StartWith(&quot;Break&quot;));
 </code></pre>
-<h4 id="notes">Notes</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><strong>StartsWith</strong> may appear only in the body of a constraint
 expression or when the inherited syntax is used.</li>

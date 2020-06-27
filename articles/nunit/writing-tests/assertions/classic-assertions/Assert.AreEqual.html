@@ -78,12 +78,12 @@ Assert.AreEqual(object expected, object actual);
 Assert.AreEqual(object expected, object actual,
                 string message, params object[] params);
 </code></pre>
-<h4 id="comparing-numerics-of-different-types">Comparing Numerics of Different Types</h4>
+<h2 id="comparing-numerics-of-different-types">Comparing Numerics of Different Types</h2>
 <p>The method overloads that compare two objects make special provision so that numeric
 values of different types compare as expected. This assert succeeds:</p>
 <pre><code class="lang-csharp">Assert.AreEqual(5, 5.0);
 </code></pre>
-<h4 id="comparing-floating-point-values">Comparing Floating Point Values</h4>
+<h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
 <p>Values of type float and double are compared using an additional
 argument that indicates a tolerance within which they will be considered
 as equal.</p>
@@ -92,12 +92,12 @@ as equal.</p>
 Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
 Assert.AreEqual(double.NaN, double.NaN);
 </code></pre>
-<h4 id="comparing-arrays-and-collections">Comparing Arrays and Collections</h4>
+<h2 id="comparing-arrays-and-collections">Comparing Arrays and Collections</h2>
 <p>NUnit is able to compare single-dimensioned arrays, multi-dimensioned arrays,
 nested arrays (arrays of arrays) and collections. Two arrays or collections are considered equal
 if they have the same dimensions and if each pair of corresponding elements is equal.</p>
 <p>NUnit 3.0 adds the ability to compare generic collections and dictionaries.</p>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/EqualConstraint.html">Equal Constraint</a></li>
 <li><a href="../../attributes/defaultfloatingpointtolerance.html">DefaultFloatingPointTolerance Attribute</a></li>

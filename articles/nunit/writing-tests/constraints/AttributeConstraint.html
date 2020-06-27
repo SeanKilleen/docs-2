@@ -69,21 +69,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="attribute-constraint">Attribute Constraint</h1>
 
-<p><strong>AttributeConstraint</strong> tests for the existence of an attribute on a Type and then applies a constraint to that attribute.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>AttributeConstraint</code> tests for the existence of an attribute on a Type and then applies a constraint to that attribute.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">AttributeConstraint(Type type, IConstraint baseConstraint)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Has.Attribute(typeof(TestFixtureAttribute))...
 Has.Attribute&lt;TestFixtureAttribute&gt;()...
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(someObject, Has.Attribute(typeof(TestFixtureAttribute))
     .Property(&quot;Description&quot;).EqualTo(&quot;My description&quot;));
 Assert.That(someObject, Has.Attribute&lt;TestFixtureAttribute&gt;()
     .Property(&quot;Description&quot;).EqualTo(&quot;My description&quot;));
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a></li>
 </ul>

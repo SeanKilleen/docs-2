@@ -74,14 +74,7 @@
 <h2 id="getting-started">Getting started</h2>
 <p>In your solution;</p>
 <ol>
-<li>Add new test projects to your solution. These project types are included in the <a href="https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7">NUnit Templates Extension</a></li>
-</ol>
-<ul>
-<li>NUnit 3 Test Project (Android)</li>
-<li>NUnit 3 Test Project (iOS)</li>
-<li>NUnit 3 Test Project (Universal Windows)</li>
-</ul>
-<ol start="2">
+<li>Add new test projects to your solution. These project types are included in the <a href="https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7">NUnit Templates Extension</a>: <code>NUnit 3 Test Project (Android)</code>. <code>NUnit 3 Test Project (iOS)</code>, <code>NUnit 3 Test Project (Universal Windows)</code></li>
 <li>Write your unit tests in this project, in a portable project, or in a shared project, referencing the project with the tests.</li>
 <li>Build and run the tests on your device or emulator</li>
 </ol>
@@ -96,7 +89,7 @@
 </ul>
 <p>The startup code for each platform is as follows;</p>
 <h3 id="android">Android</h3>
-<p><strong>MainActivity.cs</strong></p>
+<h4 id="mainactivitycs">MainActivity.cs</h4>
 <pre><code class="lang-csharp">[Activity(Label = &quot;NUnit 3&quot;, MainLauncher = true, Theme = &quot;@android:style/Theme.Holo.Light&quot;, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 {
@@ -123,7 +116,7 @@ public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicat
 }
 </code></pre>
 <h3 id="ios">iOS</h3>
-<p><strong>AppDelegate.cs</strong></p>
+<h4 id="appdelegatecs">AppDelegate.cs</h4>
 <pre><code class="lang-csharp">[Register(&quot;AppDelegate&quot;)]
 public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 {
@@ -157,7 +150,7 @@ public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsAppli
 }
 </code></pre>
 <h3 id="windows-10-universal">Windows 10 Universal</h3>
-<p><strong>MainPage.xaml</strong></p>
+<h4 id="mainpagexaml">MainPage.xaml</h4>
 <pre><code class="lang-XML">&lt;forms:WindowsPage
     x:Class=&quot;NUnit.Runner.Tests.MainPage&quot;
     xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
@@ -173,7 +166,7 @@ public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsAppli
     &lt;/Grid&gt;
 &lt;/forms:WindowsPage&gt;
 </code></pre>
-<p><strong>MainPage.xaml.cs</strong></p>
+<h4 id="mainpagexamlcs">MainPage.xaml.cs</h4>
 <pre><code class="lang-csharp">public sealed partial class MainPage : WindowsPage
 {
     public MainPage()
@@ -198,7 +191,7 @@ public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsAppli
     }
 }
 </code></pre>
-<p><strong>App.xaml.cs</strong></p>
+<h4 id="appxamlcs">App.xaml.cs</h4>
 <pre><code class="lang-csharp">protected override void OnLaunched(LaunchActivatedEventArgs e)
 {
     // &lt;SNIP&gt;

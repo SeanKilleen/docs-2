@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="delayed-constraint">Delayed Constraint</h1>
 
-<p><strong>DelayedConstraint</strong> delays the application of another constraint until a certain
+<p><code>DelayedConstraint</code> delays the application of another constraint until a certain
 amount of time has passed. In its simplest form, it replaces use of a Sleep
 in the code but it also supports polling, which may allow use of a longer
 maximum time while still keeping the tests as fast as possible.</p>
@@ -79,14 +79,30 @@ the entire expression up to the point where <strong>After</strong> appears.</p>
 the value will be extracted at the point of call. Its intended use is with
 delegates and references. If a delegate is used with polling, it may be called
 multiple times so only methods without side effects should be used in this way.</p>
-<table class="constraints">
-<tr><th>Syntax Helper</th><th>Constructor</th><th>Operation</th></tr>
-<tr><td>After(int)</td><td>DelayedConstraint(Constraint, int)</td><td>tests that a constraint is satisfied after a delay.</td></tr>
-<tr><td>After(int, int)</td><td>DelayedConstraint(Constraint, int, int)</td><td>tests that a constraint is satisfied after a delay using polling.</td></tr>
+<table>
+<thead>
+<tr>
+<th>Syntax Helper</th>
+<th>Constructor</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After(int)</td>
+<td>DelayedConstraint(Constraint, int)</td>
+<td>tests that a constraint is satisfied after a delay.</td>
+</tr>
+<tr>
+<td>After(int, int)</td>
+<td>DelayedConstraint(Constraint, int, int)</td>
+<td>tests that a constraint is satisfied after a delay using polling.</td>
+</tr>
+</tbody>
 </table>
-<h4 id="enhanced-syntax">Enhanced Syntax</h4>
+<h2 id="enhanced-syntax">Enhanced Syntax</h2>
 <p>With NUnit 3.6, an enhanced syntax is available that allows expressing the delay and polling interval more fluently.</p>
-<pre><code class="lang-C">   After(4).Seconds
+<pre><code class="lang-csharp">   After(4).Seconds
    After(1).Minutes.PollEvery(500).MilliSeconds
 </code></pre>
 <p>Only Minutes, Seconds and MilliSeconds (note capital-S) are accepted as time modifiers. The default is to use MilliSeconds.</p>

@@ -74,7 +74,7 @@
 <li>Use the Extension Manager</li>
 <li>Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)</li>
 </ul>
-<h5 id="installing-with-the-extension-manager">Installing With the Extension Manager</h5>
+<h2 id="installing-with-the-extension-manager">Installing With the Extension Manager</h2>
 <p>To install the NUnit Test Adapter using the Extension Manager, follow these steps:</p>
 <ol>
 <li>From within Visual Studio, select Tools | Extension Manager.</li>
@@ -83,7 +83,7 @@
 <li>Click 'Download' and follow the instructions.</li>
 </ol>
 <p>Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.</p>
-<h5 id="installing-the-nuget-package">Installing the NuGet Package</h5>
+<h2 id="installing-the-nuget-package">Installing the NuGet Package</h2>
 <p>To add it is a NuGet package, you must have an active solution, then follow these steps:</p>
 <ol>
 <li>From Tools menu, use Library Package Manager and select Manage NuGet packages for solution</li>
@@ -92,7 +92,7 @@
 <li>Click 'Install'</li>
 <li>In the &quot;Select Projects&quot; dialog, you need to select at least one project to add the adapter to, see notes below.</li>
 </ol>
-<h5 id="how-to-choose-between-extension-and-nuget-package">How to choose between Extension and NuGet package</h5>
+<h2 id="how-to-choose-between-extension-and-nuget-package">How to choose between Extension and NuGet package</h2>
 <p>The Extension will apply to Visual Studio itself, and will work for all projects you use. All users of your solution need to install the Extension. If you use TFS Build you must also install the extension to the build system there.</p>
 <p>The NuGet Package will apply to the solution, and will work for any other user too, as it follows the solution, but requires the user to have VS 2012 Update 1 or above. It will also work for any TFS 2012 Update 1 or above server build, including TF Service and requires no further installation.</p>
 <p>If you are testing <strong>.NET Core or .NET Standard</strong> you must use the NuGet package and Visual Studio 2017 or newer. Visual Studio does not support running .NET Core tests using an extension. The extension will only work with the full .NET Framework.</p>

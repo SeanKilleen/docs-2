@@ -79,7 +79,7 @@ not already running in the correct apartment.</p>
 <p>When this attribute is not specified, tests run in the MTA.</p>
 <p>This attribute replaces the RequiresMTA and RequiresSTA attributes, which
 are now considered obsolete.</p>
-<h4 id="assembly-level-examples">Assembly Level Examples</h4>
+<h2 id="assembly-level-examples">Assembly Level Examples</h2>
 <pre><code class="lang-csharp">
 // All the tests in this assembly will use the MTA by default. Since
 // this is the general default, the attribute is not actually needed.
@@ -91,9 +91,9 @@ are now considered obsolete.</p>
 [assembly:Apartment(ApartmentState.STA)]
 
 </code></pre>
-<h4 id="test-fixture-examples">Test Fixture Examples</h4>
+<h2 id="test-fixture-examples">Test Fixture Examples</h2>
 <pre><code class="lang-csharp">
-// TestFixture requiring use of the MTA. The attribute is not 
+// TestFixture requiring use of the MTA. The attribute is not
 // needed unless the STA was specified at a higher level.
 [TestFixture, Apartment(ApartmentState.MTA)]
 public class FixtureRequiringMTA
@@ -109,7 +109,7 @@ public class FixtureRequiringSTA
 }
 
 </code></pre>
-<h4 id="test-method-examples">Test Method Examples</h4>
+<h2 id="test-method-examples">Test Method Examples</h2>
 <pre><code class="lang-csharp">[TestFixture]
 public class AnotherFixture
 {
@@ -126,7 +126,7 @@ public class AnotherFixture
   }
 }
 </code></pre>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="requiresthread.html">RequiresThread Attribute</a></li>
 </ul>

@@ -82,7 +82,7 @@ provides a visual indication of which categories are selected at any time.</p>
 <h5>Warning</h5>
 <p>While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.</p>
 </div>
-<h4 id="test-fixture-syntax">Test Fixture Syntax</h4>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -96,7 +96,7 @@ provides a visual indication of which categories are selected at any time.</p>
   }
 }
 </code></pre>
-<h4 id="test-syntax">Test Syntax</h4>
+<h2 id="test-syntax">Test Syntax</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -119,11 +119,10 @@ sets the category name to the name of your class.</p>
 just like any other category, but has a simpler syntax. A test reporting
 system might make use of the attribute to provide special reports.</p>
 <pre><code class="lang-csharp">[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
-public class CriticalAttribute : CategoryAttribute 
+public class CriticalAttribute : CategoryAttribute
 { }
-
 </code></pre>
-<pre><code>[Test, Critical]
+<pre><code class="lang-csharp">[Test, Critical]
 public void MyTest()
 { /*...*/ }
 </code></pre>

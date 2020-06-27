@@ -74,7 +74,7 @@ properties on any test case or fixture, using a name/value pair.
 In the example below, the fixture class MathTests is given a Location
 value of 723 while the test case AdditionTest is given a Severity
 of &quot;Critical&quot;</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -89,14 +89,14 @@ of &quot;Critical&quot;</p>
   }
 }
 </code></pre>
-<h4 id="usage-note">Usage Note</h4>
+<h2 id="usage-note">Usage Note</h2>
 <p>The PropertyAttribute is not currently used for any purpose by NUnit itself, other
 than to display them in the XML output file and in the Test Properties
 dialog of the gui. You may also use properties with the <code>--where</code> option on the
 command-line in order to select tests to run. See <a class="xref" href="../../running-tests/Test-Selection-Language.html">Test Selection Language</a>. Note
 that his filtering will only work for properties where the values have type string.</p>
 <p>User tests may access properties through the <a class="xref" href="../TestContext.html">TestContext</a> or by reflection.</p>
-<h4 id="custom-property-attributes">Custom Property Attributes</h4>
+<h2 id="custom-property-attributes">Custom Property Attributes</h2>
 <p>Users can define custom attributes that derive from <strong>PropertyAttribute</strong>
 and have them recognized by NUnit. PropertyAttribute provides a protected constructor
 that takes the value of the property and sets the property name to the
@@ -116,7 +116,7 @@ A custom test reporting system might make use of the property to provide special
 public class SeverityAttribute : PropertyAttribute
 {
     public SeverityAttribute(SeverityLevel level)
-	    : base(level);
+      : base(level);
 }
 
 ...

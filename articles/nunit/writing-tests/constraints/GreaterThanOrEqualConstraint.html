@@ -69,26 +69,25 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="greaterthanorequal-constraint">GreaterThanOrEqual Constraint</h1>
 
-<p><strong>GreaterThanOrEqualConstraint</strong> tests that one value is greater than or equal to another.</p>
-<h4 id="constructor">Constructor</h4>
+<p><code>GreaterThanOrEqualConstraint</code> tests that one value is greater than or equal to another.</p>
+<h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">GreaterThanOrEqualConstraint(object expected)
 </code></pre>
-<h4 id="syntax">Syntax</h4>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Is.GreaterThanOrEqualTo(object expected)
 Is.AtLeast(object expected)
 </code></pre>
-<h4 id="modifiers">Modifiers</h4>
+<h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...Using(IComparer comparer)
 ...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
-<h4 id="examples-of-use">Examples of Use</h4>
+<h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(7, Is.GreaterThanOrEqualTo(3));
 Assert.That(7, Is.AtLeast(3));
 Assert.That(7, Is.GreaterThanOrEqualTo(7));
 Assert.That(7, Is.AtLeast(7));
-Assert.That(myOwnObject, 
-    Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
+Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
 </code></pre>
 </article>
           </div>

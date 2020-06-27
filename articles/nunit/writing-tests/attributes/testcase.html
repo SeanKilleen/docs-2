@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="testcaseattribute">
 <h1 id="testcase">TestCase</h1>
 
-<p><strong>TestCaseAttribute</strong> serves the dual purpose of marking a method with
+<p><code>TestCaseAttribute</code> serves the dual purpose of marking a method with
 parameters as a test method and providing inline data to be used when
 invoking that method. Here is an example of a test being run three
 times, with three different sets of data:</p>
@@ -102,32 +102,20 @@ public int DivideTest(int n, int d)
 value of the method is equal to the expected result provided on the attribute.</p>
 <p>TestCaseAttribute supports a number of additional named parameters:</p>
 <ul>
-<li><p><strong>Author</strong> sets the author of the test.</p>
-</li>
-<li><p><strong>Category</strong> provides a comma-delimited list of categories for this test.</p>
-</li>
-<li><p><strong>Description</strong> sets the description property of the test.</p>
-</li>
-<li><p><strong>ExcludePlatform</strong> specifies a comma-delimited list of platforms on which the test should not run.</p>
-</li>
-<li><p><strong>ExpectedResult</strong> sets the expected result to be returned from the method, which must have a compatible return type.</p>
-</li>
-<li><p><strong>Explicit</strong> is set to true in order to make the individual test case Explicit. Use <strong>Reason</strong> to explain why.</p>
-</li>
-<li><p><strong>Ignore</strong> causes the test case to be ignored and specifies the reason.</p>
-</li>
-<li><p><strong>IgnoreReason</strong> causes this test case to be ignored and specifies the reason.</p>
-</li>
-<li><p><strong>IncludePlatform</strong> specifies a comma-delimited list of platforms on which the test should run.</p>
-</li>
-<li><p><strong>Reason</strong> specifies the reason for not running this test case. Use in conjunction with <strong>Explicit</strong>.</p>
-</li>
-<li><p><strong>TestName</strong> provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See <a class="xref" href="../../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</p>
-</li>
-<li><p><strong>TestOf</strong> specifies the Type that this test is testing</p>
-</li>
+<li><strong>Author</strong> sets the author of the test.</li>
+<li><strong>Category</strong> provides a comma-delimited list of categories for this test.</li>
+<li><strong>Description</strong> sets the description property of the test.</li>
+<li><strong>ExcludePlatform</strong> specifies a comma-delimited list of platforms on which the test should not run.</li>
+<li><strong>ExpectedResult</strong> sets the expected result to be returned from the method, which must have a compatible return type.</li>
+<li><strong>Explicit</strong> is set to true in order to make the individual test case Explicit. Use <strong>Reason</strong> to explain why.</li>
+<li><strong>Ignore</strong> causes the test case to be ignored and specifies the reason.</li>
+<li><strong>IgnoreReason</strong> causes this test case to be ignored and specifies the reason.</li>
+<li><strong>IncludePlatform</strong> specifies a comma-delimited list of platforms on which the test should run.</li>
+<li><strong>Reason</strong> specifies the reason for not running this test case. Use in conjunction with <strong>Explicit</strong>.</li>
+<li><strong>TestName</strong> provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See <a class="xref" href="../../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
+<li><strong>TestOf</strong> specifies the Type that this test is testing</li>
 </ul>
-<h4 id="order-of-execution">Order of Execution</h4>
+<h2 id="order-of-execution">Order of Execution</h2>
 <p>Individual test cases are executed in the order in which NUnit discovers them.
 This order does <strong>not</strong> necessarily follow the lexical order of the attributes
 and will often vary between different compilers or different versions of the CLR.</p>

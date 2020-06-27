@@ -70,7 +70,7 @@
 <h1 id="multiple-asserts">Multiple Asserts</h1>
 
 <p>Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like object initialization and UI appearance as well as certain kinds of integration testing.</p>
-<h3 id="syntax">Syntax</h3>
+<h2 id="syntax">Syntax</h2>
 <p>Multiple asserts are implemented using the <code>Assert.Multiple</code> method. Here is an example of its use:</p>
 <pre><code class="lang-csharp">[Test]
 public void ComplexNumberTest()
@@ -85,7 +85,7 @@ public void ComplexNumberTest()
 }
 </code></pre>
 <p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the end of the block if any failures were encountered, but would continue otherwise.</p>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><p>The multiple assert block may contain any arbitrary code, not just asserts.</p>
 </li>

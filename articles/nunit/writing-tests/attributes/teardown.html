@@ -78,7 +78,7 @@ of an inheritance hierarchy, as explained below.</p>
 <p>So long as any SetUp method runs without error, the TearDown method is
 guaranteed to run. It will not run if a SetUp method fails or throws an
 exception.</p>
-<h4 id="example">Example:</h4>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -98,14 +98,14 @@ exception.</p>
   }
 }
 </code></pre>
-<h4 id="inheritance">Inheritance</h4>
+<h2 id="inheritance">Inheritance</h2>
 <p>The TearDown attribute is inherited from any base class. Therefore, if a base
 class has defined a TearDown method, that method will be called
 after each test method in the derived class.</p>
 <p>You may define a TearDown method
 in the base class and another in the derived class. NUnit will call base
 class TearDown methods after those in the derived classes.</p>
-<h4 id="notes">Notes:</h4>
+<h2 id="notes">Notes</h2>
 <ol>
 <li><p>Although it is possible to define multiple TearDown methods
 in the same class, you should rarely do so. Unlike methods defined in
@@ -115,7 +115,7 @@ are executed is not guaranteed.</p>
 <li><p>TearDown methods may be async if running under .NET 4.0 or higher.</p>
 </li>
 </ol>
-<h4 id="see-also">See also...</h4>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="setup.html">SetUp Attribute</a></li>
 <li><a href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
