@@ -78,7 +78,7 @@
 <p>We would define a new attributes, Dependencies:</p>
 <p><code>[Dependencies (&lt;dependency-specification&gt; [, &lt;dependency-specification&gt; [, ...]])]</code></p>
 <p>where <code>&lt;dependency-specification&gt;</code> is:</p>
-<pre><code>Before=&quot;TestA, TestB&quot;
+<pre><code class="lang-none">Before=&quot;TestA, TestB&quot;
 After=&quot;TestC, TestD&quot;
 AfterAnySuccess=&quot;TestE, TestF&quot;
 AfterAnyFailure=&quot;TestG, TestH&quot;
@@ -97,7 +97,7 @@ AfterAllSuccess
 
 
 Before=&lt;test-list&gt;
-    The designated Test or TestFixture will be run to completion (successfully or not) 
+    The designated Test or TestFixture will be run to completion (successfully or not)
     before any of the tests specified in the list are run.
 
 After=&lt;test-list&gt;
@@ -112,7 +112,7 @@ AfterAllSuccess=&lt;test-list&gt;
 AfterAllFailure=&lt;test-list&gt;
     The Test or TestFixture will be run after the failure of all of the tests specified
     in the list.  If any of the tests specified in the list succeed, the designated Test
-    or TestFixture will not be run. 
+    or TestFixture will not be run.
 
 AfterAnySuccess=&lt;test-list&gt;
     The Test or TestFixture will be run after the successful completion of any of the tests
@@ -122,8 +122,8 @@ AfterAnySuccess=&lt;test-list&gt;
 AfterAnyFailure=&lt;test-list&gt;
     The Test or TestFixture will be run after the failure of any of the tests specified in
     the list.  If all of the tests specified in the list succeed, the designated Test or
-    TestFixture will not be run. 
-   
+    TestFixture will not be run.
+
 BeforeAll
     The Test or TestFixture will be run before all other tests or test fixtures are run.
     This dependency can be overridden by a specific Before dependency referencing this

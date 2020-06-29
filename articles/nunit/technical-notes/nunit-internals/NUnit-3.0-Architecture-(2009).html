@@ -70,44 +70,42 @@
 <h1 id="nunit-30-architecture-2009">NUnit 3.0 Architecture (2009)</h1>
 
 <blockquote>
-<p>This is the original - now out of date - document created to describe the planned architecture for NUnit 3.0. We are keeping it for whatever historical interest it may have.</p>
+<p>This is the original - now out of date - document created to describe the planned architecture for NUnit 3.0. We are keeping it for whatever historical interest it may have.
+The diagram was created first and was shown for the first time by Charlie Poole at a Mono gathering in Madrid in 2008.  The complete document was published the following year.</p>
 </blockquote>
-<blockquote>
-<p>The diagram was created first and was shown for the first time by Charlie Poole at a Mono gathering in Madrid in 2008.  The complete document was published the following year.</p>
-</blockquote>
-<h3 id="summary">Summary</h3>
+<h2 id="summary">Summary</h2>
 <p>This specification describes the overall layered architecture of the NUnit Platform. Details of individual components are covered only as they are relevant to the overall architecture.</p>
-<h5 id="launchpad-blueprint">Launchpad Blueprint</h5>
+<h3 id="launchpad-blueprint">Launchpad Blueprint</h3>
 <ul>
 <li><a href="http://blueprints.launchpad.net/nunit-3.0/+spec/nunit-3.0-architecture">http://blueprints.launchpad.net/nunit-3.0/+spec/nunit-3.0-architecture</a></li>
 </ul>
-<h3 id="user-stories">User Stories</h3>
-<h5 id="an-nunit-user">An NUnit User...</h5>
+<h2 id="user-stories">User Stories</h2>
+<h3 id="an-nunit-user">An NUnit User</h3>
 <ul>
 <li>upgrades selected components of the NUnit platform without changing others.</li>
 <li>runs tests using alternate runners and frameworks under the NUnit platform.</li>
 <li>installs and uses addins and other extensions to the NUnit platform.</li>
 </ul>
-<h5 id="an-nunit-developer">An NUnit Developer...</h5>
+<h3 id="an-nunit-developer">An NUnit Developer</h3>
 <ul>
 <li>understands how each component fits into the overall architecture of NUnit.</li>
 <li>chooses the proper component and project for making a fix or adding a feature.</li>
 <li>is able to focus attention on the component being modified, without worrying about the details of other components.</li>
 </ul>
-<h5 id="an-nunit-extension-developer">An NUnit Extension Developer...</h5>
+<h3 id="an-nunit-extension-developer">An NUnit Extension Developer</h3>
 <ul>
 <li>can develop an extension to a specific NUnit component, without dealing with other parts.</li>
 <li>can develop extensions to multiple NUnit components, which work together to achieve their result.</li>
 </ul>
-<h3 id="layers">Layers</h3>
+<h2 id="layers">Layers</h2>
 <p>The basic architecture of the NUnit Extended testing platform consists of three layers:</p>
 <ul>
-<li>[Architectural-Overview.md#Test-Runner-Layer)</li>
-<li>[Architectural-Overview.md#Test-Engine-Layer)</li>
-<li>[Architectural-Overview.md#Framework-Layer)</li>
+<li><a href="Architectural-Overview.html#test-runner-layer">Test Runner Layer</a></li>
+<li><a href="Architectural-Overview.html#test-engine-layer">Test Engine Layer</a></li>
+<li><a href="Architectural-Overview.html#framework-layer">Framework Layer</a></li>
 </ul>
-<p><img src="../../../../images/nunit-xtp-2008.png" alt=""></p>
-<h4 id="test-runner-layer">Test Runner Layer</h4>
+<p><img src="../../../../images/nunit-xtp-2008.png" alt="topology"></p>
+<h3 id="test-runner-layer">Test Runner Layer</h3>
 <p>The Test Runner or UI layer contains various runners, some provided by the NUnit team, others by independent projects leveraging the NUnit platform. Some runners are stand-alone programs, while others are tasks or plugins running under the control of an IDE or other application. This diversity of runners is part of the reason we refer to NUnit 3.0 as a Testing Platform – we expect many different runners to come into existence and will facilitate their development by providing reusable controls for several key environments.</p>
 <p>Programs in this layer are able to participate in the NUnit platform plugin architecture, providing extension points that allow them to be extended. Plugins at this level will usually add some functionality to the UI. Some of them may be standalone while others may require the presence of specific test engine plugins in order to operate.</p>
 <p>The NUnit project will continue to provide both a console runner and a WinForms-based GUI with extended capabilities those in NUnit 2.5. In addition, two new GUI runners will be developed, one based on WPF, the other on GTK#.</p>
@@ -115,15 +113,15 @@
 <p>In the area of IDE integration, we will deliver a Visual Studio addin or package for running NUnit tests. Since other folks are already providing open source plugins for SharpDevelop and MonoDevelop, we’ll work with them to ensure compatibility.</p>
 <p>There is a long-standing need for a runner that executes tests in an actual or simulated web server environment. While good practice calls for extracting as much functionality as possible into separately testable assemblies, more complex applications often contain code which can only be tested in such an environment. For that reason, NUnit 3.0 will feature a web runner, which allows tests to be executed on a web server, reporting results back to the desktop.</p>
 <p>Each of the runners will have the option of participating in the NUnit plugin architecture and using functionality provided by NUnit to whatever degree desired. For the runners developed directly by the NUnit team, this capability will be used to the max, allowing others to add GUI features that function by themselves or in conjunction with other plugins operating at the level of the test engine.</p>
-<h4 id="test-engine-layer">Test Engine Layer</h4>
+<h3 id="test-engine-layer">Test Engine Layer</h3>
 <p>The Test Engine Layer is the core of the NUnit platform. It provides a public API for use by applications that want to locate, load and run tests and display test results. Many aspects of the Test Engine are already present in NUnit 2.4, while others are new. I’ll focus on the new features here.</p>
 <p>NUnit 2.5 already supports running tests in a separate process, allowing selection of the CLR version under which the test is to be run. NUnit 3.0 will extend this feature to allow test processes to run on other machines. It will also support distribution of test execution across a network of remote Test Agents. This facility is intended to be used in several distinct scenarios:</p>
 <ul>
 <li>Simple load sharing when test execution time is excessive</li>
 <li>Testing applications on multiple platforms</li>
-<li>Testing applications, which are themselves distributed
-A great deal of distributed function is already present in NUnit 2.5 through pNUnit, the distributed testing runner contributed to our project by Codice Software. With NUnit 3.0, we plan to integrate this function more completely into NUnit, allowing them to be executed by any runner that uses the NUnit Test Engine.</li>
+<li>Testing applications, which are themselves distributed</li>
 </ul>
+<p>A great deal of distributed function is already present in NUnit 2.5 through pNUnit, the distributed testing runner contributed to our project by Codice Software. With NUnit 3.0, we plan to integrate this function more completely into NUnit, allowing them to be executed by any runner that uses the NUnit Test Engine.</p>
 <p>NUnit will support performance and coverage analysis, test result reporting and maintenance of a history of test results. These features will function only as called upon by the user. That is, we will not carry on data collection activities with the potential of impacting performance when the user simply wants to run tests.</p>
 <p>Through use of plugins, NUnit will be able to support a wide variety of test types beyond low-level, isolated programmer tests. What is available in this area will be dependent on the interests of users and their willingness to contribute their efforts to creating them. Examples of the kinds of things we envision, some of which we will provide directly, are:</p>
 <ul>

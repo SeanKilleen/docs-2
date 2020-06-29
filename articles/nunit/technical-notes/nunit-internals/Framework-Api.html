@@ -87,10 +87,10 @@ domain.CreateInstanceAndUnwrap(
     false, 0, null, args, null, null, null);
 
 // myHandler.GetCallbackResult() should return an Xml string with the result
-// of the Load, which was passed to it by the framework. 
+// of the Load, which was passed to it by the framework.
 // We're not checking this here, as we normally would do.
 
-// Run the tests 
+// Run the tests
 args = new object[] { controller, &quot;&lt;filter/&gt;&quot;, myHandler };
 domain.CreateInstanceAndUnwrap(
     &quot;nunit.framework&quot;, &quot;NUnit.Framework.Api.FrameworkController+RunTestsAction&quot;,
@@ -99,7 +99,7 @@ domain.CreateInstanceAndUnwrap(
 // myHandler.GetCallbackResult() should return an Xml string with the results
 // of running the test, which was passed to it by the framework.
 </code></pre>
-<h3 id="api-classes">API Classes</h3>
+<h2 id="api-classes">API Classes</h2>
 <p>The following classes provide the API:</p>
 <ul>
 <li>FrameworkPackageSettings</li>
@@ -113,10 +113,10 @@ domain.CreateInstanceAndUnwrap(
 </ul>
 </li>
 </ul>
-<h4 id="frameworkpackagesettings">FrameworkPackageSettings</h4>
+<h3 id="frameworkpackagesettings">FrameworkPackageSettings</h3>
 <p>This static class defines constants for the names of all settings recognized by the framework. We use <code>FrameworkPackageSettings</code> rather than constants spread throughout the code in order to keep things consistent. A copy of this class is maintained in both the console runner and the framework and the settings are passed through to the framework by the engine.</p>
 <p>As new versions of the framework are released, settings in this file are not changed, although new settings may be added. See the code itself for a list of the settings in use.</p>
-<h4 id="frameworkcontroller">FrameworkController</h4>
+<h3 id="frameworkcontroller">FrameworkController</h3>
 <p>The driver creates a <code>FrameworkController</code> instance using reflection for each test assembly that must be loaded for browsing or execution. The constructor is defined as follows:</p>
 <pre><code class="lang-csharp">public FrameworkController(string assemblyPath, string idPrefix, IDictionary settings)
 </code></pre>
@@ -127,7 +127,7 @@ domain.CreateInstanceAndUnwrap(
 <li><code>settings</code> is an IDictionary containing the settings to be used in loading and running this assembly. A non-generic dictionary is used to allow for implementation of the framework on platforms that don't support Generics.</li>
 </ul>
 <p>This constructor always succeeds, provided that the arguments are of the correct types. Any operational errors will occur when specific actions like Load or Run are taken.</p>
-<h4 id="frameworkcontrolleraction">FrameworkControllerAction</h4>
+<h3 id="frameworkcontrolleraction">FrameworkControllerAction</h3>
 <p>As the driver needs to perform some action, it creates a temporary instance of a class derived from <code>FrameworkControllerAction</code>. The constructors for all actions have the following points in common:</p>
 <ul>
 <li>They take an instance of <code>FrameworkController</code> as their first argument. This must be the instance originally created by the driver for the particular assembly. This instance provides a common point of communication among various actions taken against the assembly.</li>
@@ -140,7 +140,7 @@ domain.CreateInstanceAndUnwrap(
 <h5>Note</h5>
 <p>The <code>ICallbackEventHandler</code> is actually passed as an object and cast to the interface by the framework. This is intended to allow future use of other interfaces for progress.</p>
 </div>
-<h4 id="loadtestsaction">LoadTestsAction</h4>
+<h3 id="loadtestsaction">LoadTestsAction</h3>
 <p><code>LoadTestsAction</code> must be used before any other action can be called. Its constructor is as follows:</p>
 <pre><code class="lang-csharp">public LoadTestsAction(FrameworkController controller, object handler);
 </code></pre>
@@ -151,7 +151,7 @@ domain.CreateInstanceAndUnwrap(
 </ul>
 <p>The result returned from <code>handler.GetCallbackResult()</code> is the XML representation of the loaded test assembly. No child tests are included in the XML, since this method will be called by programs with no need for such a level of detail. Programs requiring the full tree of tests, such as Gui runners, should follow up by using the <code>ExploreTestsAction</code>.</p>
 <p>If the assembly can not be found or loaded, the same result is returned, but with a <code>RunState</code> of <code>NotRunnable</code>.</p>
-<h4 id="exploretestsaction">ExploreTestsAction</h4>
+<h3 id="exploretestsaction">ExploreTestsAction</h3>
 <p><code>ExploreTestsAction</code> is used to get the full tree of tests, as for display in a Gui. Its constructor is as follows:</p>
 <pre><code class="lang-csharp">public ExploreTestsAction(FrameworkController controller, string filter, object handler);
 </code></pre>
@@ -164,7 +164,7 @@ domain.CreateInstanceAndUnwrap(
 <p>The result returned from <code>handler.GetCallbackResult()</code> is the XML representation of the test assembly, containing all tests that passed the filter, arranged as a tree with child tests contained within their parents.</p>
 <p>If the assembly was not found or unable to be loaded, a non-runnable assembly with no child tests is returned.</p>
 <p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
-<h4 id="counttestsaction">CountTestsAction</h4>
+<h3 id="counttestsaction">CountTestsAction</h3>
 <p>CountTestsAction is used to get the number of test cases that will be executed under a specified filter, for use in a progress display. Its constructor is as follows.</p>
 <pre><code class="lang-csharp">public CountTestsAction(FrameworkController controller, string filter, object handler);
 </code></pre>
@@ -177,7 +177,7 @@ domain.CreateInstanceAndUnwrap(
 <p>The result returned from <code>handler.GetCallbackResult()</code> is the string representation of the integer number of test cases that match the filter.</p>
 <p>If the assembly was not found or unable to be loaded, &quot;0&quot; is returned.</p>
 <p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
-<h4 id="runtestsaction">RunTestsAction</h4>
+<h3 id="runtestsaction">RunTestsAction</h3>
 <p><code>RunTestsAction</code> is used to execute the loaded tests. Its constructor is as follows:</p>
 <pre><code class="lang-csharp">public RunTestsAction(FrameworkController controller, string filter, object handler);
 </code></pre>
@@ -190,7 +190,7 @@ domain.CreateInstanceAndUnwrap(
 <p>The result returned from <code>handler.GetCallbackResult</code> is the XML representation of the test result, including all child results.</p>
 <p>If the assembly was not found or could not be loaded, a non-runnable result with no child tests is returned.</p>
 <p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
-<h4 id="runasyncaction">RunAsyncAction</h4>
+<h3 id="runasyncaction">RunAsyncAction</h3>
 <p><code>RunAsyncAction</code> is used to initiate an asynchronous test run, returning immediately. Its constructor is as follows:</p>
 <pre><code class="lang-csharp">public RunAsyncAction(FrameworkController controller, string filter, object handler);
 </code></pre>
@@ -203,7 +203,7 @@ domain.CreateInstanceAndUnwrap(
 <p>No actual result is returned immediately from the call. The <code>handler</code> progress notices must be tracked in order to know what is going on with the tests and eventually the final result may be retrieved.</p>
 <p>If the assembly was not found or could not be loaded, a non-runnable result with no child tests is returned.</p>
 <p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
-<h4 id="stoprunaction">StopRunAction</h4>
+<h3 id="stoprunaction">StopRunAction</h3>
 <p><code>StopRunAction</code> is used to stop an ongoing test run. Its constructor is as follows:</p>
 <pre><code class="lang-csharp">public StopRunAction(FrameworkController controller, bool force, object handler);
 </code></pre>

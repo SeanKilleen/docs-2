@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit1014">NUnit1014</h1>
 
-<h2 id="async-test-method-must-have-task-return-type-when-a-result-is-expected">Async test method must have Task<t> return type when a result is expected</t></h2>
+<h2 id="async-test-method-must-have-taskt-return-type-when-a-result-is-expected">Async test method must have <code>Task&lt;T&gt;</code> return type when a result is expected</h2>
 <table>
 <thead>
 <tr>
@@ -101,7 +101,7 @@
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Async test method must have Task<t> return type when a result is expected<p>
+<p>Async test method must have <code>Task&lt;T&gt;</code> return type when a result is expected</p>
 <h2 id="motivation">Motivation</h2>
 <p>To prevent tests that will fail at runtime due to improper construction.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
@@ -134,20 +134,20 @@ public async Task&lt;bool&gt; NUnit1014SampleTest(int numberValue)
 <h3 id="via-ruleset-file">Via ruleset file.</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive.</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1014 // Async test method must have Task&lt;T&gt; return type when a result is expected
+<pre><code class="lang-csharp">#pragma warning disable NUnit1014 // Async test method must have `Task&lt;T&gt;` return type when a result is expected
 Code violating the rule here
-#pragma warning restore NUnit1014 // Async test method must have Task&lt;T&gt; return type when a result is expected
+#pragma warning restore NUnit1014 // Async test method must have `Task&lt;T&gt;` return type when a result is expected
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1014 // Async test method must have Task&lt;T&gt; return type when a result is expected
+<pre><code class="lang-csharp">#pragma warning disable NUnit1014 // Async test method must have `Task&lt;T&gt;` return type when a result is expected
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;, 
-    &quot;NUnit1014:Async test method must have Task&lt;T&gt; return type when a result is expected&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
+    &quot;NUnit1014:Async test method must have `Task&lt;T&gt;` return type when a result is expected&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
-</t></article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

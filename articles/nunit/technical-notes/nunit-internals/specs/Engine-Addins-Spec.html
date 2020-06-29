@@ -89,14 +89,14 @@
 <p>In both Mono and NUnit (2.x) addins, extensibility centers around <code>ExtensionPoints</code>. An <code>ExtensionPoint</code> is a place in the application where add-ins can register themselves in order to provide added functionality. extension nodes to provide extra functionality. NUnit 3.0 will continue to use this concept.</p>
 <p>In our initial implementation, all extension points must be known in advance and are contained in the engine. At a future point, we will probably want to add a way to dynamically create new extension points so that addins can themselves host extensions.</p>
 <p><code>ExtensionPoints</code> in the engine will be identified by use of <code>ExtensionPointAttribute</code> at the assembly level. Each attribute identifies one extension point, specifying an identifying string (the Path) and the required Type of any extension objects to be registered with it.</p>
-<h6 id="example">Example:</h6>
+<h4 id="example">Example</h4>
 <pre><code class="lang-csharp">[assembly: ExtensionPoint(Path=&quot;/NUnit/Engine/DriverService&quot;
                           Type=&quot;NUnit.Engine.Extensibility.IDriverFactory&quot;)]
 </code></pre>
 <p>In this example, the Path identifying the extension point is &quot;/NUnit/Engine/DriverService.&quot; Any type to be plugged into this extension point must implement <code>IDriverFactory</code>. Note that even though each extension point is typically implemented by some class in the system, the identity of that class is an implementation detail, which is not revealed in the <code>ExtensionPoint</code>.</p>
 <h3 id="extensions">Extensions</h3>
 <p>An <code>Extension</code> is a single object of the required type, which is registered with an <code>ExtensionPoint</code>. Extensions are identified by the <code>ExtensionAttribute</code> which is applied to the class. Extensions identified in this way must have a default constructor. See the <code>Addins</code> section below for dealing with more complex situations.</p>
-<h6 id="example-1">Example:</h6>
+<h4 id="example-1">Example</h4>
 <pre><code class="lang-csharp">[Extension(Path = &quot;/NUnit/Engine/DriverService&quot;)]
 public class NUnit2DriverFactory : IDriverFactory
 {
@@ -122,7 +122,7 @@ public class NUnit2DriverFactory : IDriverFactory
 <h3 id="addins">Addins</h3>
 <p>An <code>Addin</code> is a Type that provides <code>Extensions</code>. As indicated in the previous section, simple extensions providing a single instance of the object through a default constructor do not require an Addin. For more complex situations, an Addin object could be allowed to create and register one or more extensions. This is the approach that we took in NUnit 2.x.</p>
 <p>Addins would be identified by the <code>AddinAttribute</code> and implement the IAddin interface. They actively participate in the installation of extensions and may be used to create objects that require parameters, to install multiple extensions or to select among different extensions.</p>
-<h6 id="example-2">Example:</h6>
+<h4 id="example-2">Example</h4>
 <pre><code class="lang-csharp">[Addin]
 public class MyAddin : IAddin
 {
@@ -139,12 +139,10 @@ public class NUnit2DriverFactory : IDriverFactory
 }
 </code></pre>
 <p>The above example does the same thing as the previous example in a more complicated way. Obviously, you would use this approach only in more complex situations. Note that the factory class does not have an <code>ExtensionAttribute</code> as this would lead to its being installed twice.</p>
-<p><strong>Notes:</strong></p>
+<h4 id="notes">Notes</h4>
 <ol>
-<li><p>This design feature is not required initially and will be omitted from the implementation until we actually require it.</p>
-</li>
-<li><p>The interfaces used in this section are notionally based on NUnit 2.6.4.</p>
-</li>
+<li>This design feature is not required initially and will be omitted from the implementation until we actually require it.</li>
+<li>The interfaces used in this section are notionally based on NUnit 2.6.4.</li>
 </ol>
 <h3 id="addins-on-addins">Addins on Addins</h3>
 <p>Initially, we only need one level of addins to allow for everything we now do. It may be convenient at some point to support addins on top of other addins. For example, a given framework driver might be enhanced with some special feature through an addin.</p>

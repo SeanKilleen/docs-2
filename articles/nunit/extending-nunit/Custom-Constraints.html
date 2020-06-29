@@ -202,11 +202,11 @@ extension method on <code>ConstraintExpression</code>, such as this.</p>
 <p>To fully utilize your custom constraint the same way built-in constraints are used, you'll
 need to implement two additional classes (which can cover all your constraints, not
 for each custom constraint).</p>
-<ol>
+<ul>
 <li>Provide a static class patterned after NUnit's <code>Is</code> class, with properties
 or methods that construct your custom constructor. If you like, you can even call it
 <code>Is</code> and extend NUnit's <code>Is</code>, provided you place it in your own namespace and avoid any conflicts. This allows you to write things like:</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">Assert.That(actual, Is.Custom(x, y));
 </code></pre>
 <p>with this sample implementation:</p>
@@ -218,14 +218,13 @@ or methods that construct your custom constructor. If you like, you can even cal
     }
 }
 </code></pre>
-<ol start="2">
+<ul>
 <li>Provide an extension method for NUnit's <code>ConstraintExpression</code>, allowing
 you to write things like:</li>
-</ol>
+</ul>
 <pre><code class="lang-csharp">Assert.That(actual, Is.Not.Custom(x, y));
 </code></pre>
-<pre><code>with this sample implementation:
-</code></pre>
+<p>with this sample implementation:</p>
 <pre><code class="lang-csharp">public static class CustomConstraintExtensions
 {
     public static CustomConstraint Custom(this ConstraintExpression expression, object expected)

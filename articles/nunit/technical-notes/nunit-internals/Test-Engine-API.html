@@ -70,7 +70,7 @@
 <h1 id="test-engine-api">Test Engine API</h1>
 
 <p>The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.</p>
-<h3 id="overview">Overview</h3>
+<h2 id="overview">Overview</h2>
 <p>The Engine API is included in the <code>nunit.engine.api</code> assembly, which must be referenced by any runners wanting to use it. This assembly is being released as version 3.0, to coincide with the versioning of other NUnit components.</p>
 <p>The actual engine is contained in the <code>nunit.engine</code> assembly. This assembly is <strong>not</strong> referenced by the runners. Instead, the API is used to locate and load an appropriate version of the engine, returning an instance of the <code>ITestEngine</code> interface to the  runner.</p>
 <h3 id="getting-an-instance-of-the-engine">Getting an Instance of the Engine</h3>
@@ -93,7 +93,7 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
     /// &lt;summary&gt;
     /// ITestEngine represents an instance of the test engine.
     /// Clients wanting to discover, explore or run tests start
-    /// require an instance of the engine, which is generally 
+    /// require an instance of the engine, which is generally
     /// acquired from the TestEngineActivator class.
     /// &lt;/summary&gt;
     public interface ITestEngine : IDisposable
@@ -120,12 +120,12 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 
         /// &lt;summary&gt;
         /// Initialize the engine. This includes initializing mono addins,
-        /// setting the trace level and creating the standard set of services 
+        /// setting the trace level and creating the standard set of services
         /// used in the Engine.
-        /// 
-        /// This interface is not normally called by user code. Programs linking 
+        ///
+        /// This interface is not normally called by user code. Programs linking
         /// only to the nunit.engine.api assembly are given a
-        /// pre-initialized instance of TestEngine. Programs 
+        /// pre-initialized instance of TestEngine. Programs
         /// that link directly to nunit.engine usually do so
         /// in order to perform custom initialization.
         /// &lt;/summary&gt;
@@ -250,7 +250,7 @@ XmlNode testResult = runner.Run(this, TestFilter.Empty);
     /// &lt;summary&gt;
     /// IServiceLocator allows clients to locate any NUnit services
     /// for which the interface is referenced. In normal use, this
-    /// limits it to those services using interfaces defined in the 
+    /// limits it to those services using interfaces defined in the
     /// nunit.engine.api assembly.
     /// &lt;/summary&gt;
     public interface IServiceLocator

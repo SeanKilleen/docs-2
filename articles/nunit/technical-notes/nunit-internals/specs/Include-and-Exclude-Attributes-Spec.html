@@ -74,7 +74,7 @@
 <p>This is a draft. The contents may be out of date.</p>
 </div>
 <p>This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute. We considered several alternative approaches to doing this and selected the approach described here. See <a class="xref" href="Include%20and%20Exclude%20Attributes%20%28Alternatives%29.html">Include and Exclude Attributes (Alternatives)</a> for the original discussion of choices.</p>
-<h4 id="attributes">Attributes</h4>
+<h2 id="attributes">Attributes</h2>
 <p>We would define two new attributes, <strong>IncludeAttribute</strong> and <strong>ExcludeAttribute</strong>:</p>
 <pre><code class="lang-csharp">[Include(Culture=&quot;fr-FR&quot;)]
 [Include(Platform=&quot;Win7,Win8&quot;)]
@@ -82,36 +82,31 @@
 [Exclude(&quot;Linux&quot;)]
 [Include(&quot;Runtime &gt;= 4.0 and Platform == &quot;Linux&quot;&quot;)]
 </code></pre>
-<h4 id="syntax-options">Syntax Options</h4>
+<h2 id="syntax-options">Syntax Options</h2>
 <p>There are a number of possible alternatives for specifying when a test is to be included or excluded. Each of them is illustrated in the examples above, from which we need to select a subset.</p>
-<h5 id="1-named-properties">1. Named Properties</h5>
+<h3 id="1-named-properties">1. Named Properties</h3>
 <p>As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection domain. Comma-separated values are intended to be alternatives, so the second example would include the test under either Win7 or Win8. Separate properties (domains) would be &quot;and-ed&quot; together.</p>
-<h5 id="2-prefixes">2. Prefixes</h5>
+<h3 id="2-prefixes">2. Prefixes</h3>
 <p>By prefixing each value with the domain name, we can create a unified namespace. The third example above uses this approach, making it clear that Net-4.5 represents a runtime and nothing else. As in #1, comma-separated values are alternatives. There is no other way to create logical combinations.</p>
-<h5 id="3-implied-domain">3. Implied Domain</h5>
+<h3 id="3-implied-domain">3. Implied Domain</h3>
 <p>To the extent that the accepted values are exclusive, it's possible to deduce the domain from the value. The fourth example above takes advantage of this. Note that this approach can be combined with #2 as a kind of shorthand.</p>
-<h5 id="4-logical-expression">4. Logical Expression</h5>
+<h3 id="4-logical-expression">4. Logical Expression</h3>
 <p>We can define a DSL that allows us to specify arbitrary expressions for including or excluding tests. The last example above does this. If the expression language included <strong>not</strong>, then we could do away with the ExcludeAttribute.</p>
-<h4 id="comparison-of-options">Comparison of Options</h4>
+<h2 id="comparison-of-options">Comparison of Options</h2>
 <div class="NOTE">
 <h5>Note</h5>
 <p>The following are Charlie's ratings. Feel free to disagree!</p>
 </div>
-<h5 id="ease-of-implementation-easy-to-hard">Ease of implementation (easy to hard):</h5>
-<pre><code>1 &gt; 2 &gt; 3 &gt; 4
-</code></pre>
-<h5 id="expressiveness-least-to-greatest">Expressiveness (least to greatest):</h5>
-<pre><code>3 &gt; 2 &gt; 1 &gt; 4
-</code></pre>
-<h5 id="learning-curve-shallow-to-steep">Learning Curve (shallow to steep):</h5>
-<pre><code>1 &gt; 3 &gt; 2 &gt; 4
-</code></pre>
-<h5 id="extensibility-to-new-domains-easy-to-hard">Extensibility to new domains (easy to hard):</h5>
-<pre><code>1 &gt; (2, 3, 4)
-</code></pre>
-<h5 id="extensibility-with-new-values-easy-to-hard">Extensibility with new values (easy to hard):</h5>
-<pre><code>3 &gt; (2, 4) &gt; 1
-</code></pre>
+<h3 id="ease-of-implementation-easy-to-hard">Ease of implementation (easy to hard)</h3>
+<p>1 &gt; 2 &gt; 3 &gt; 4</p>
+<h3 id="expressiveness-least-to-greatest">Expressiveness (least to greatest)</h3>
+<p>3 &gt; 2 &gt; 1 &gt; 4</p>
+<h3 id="learning-curve-shallow-to-steep">Learning Curve (shallow to steep)</h3>
+<p>1 &gt; 3 &gt; 2 &gt; 4</p>
+<h3 id="extensibility-to-new-domains-easy-to-hard">Extensibility to new domains (easy to hard)</h3>
+<p>1 &gt; (2, 3, 4)</p>
+<h3 id="extensibility-with-new-values-easy-to-hard">Extensibility with new values (easy to hard)</h3>
+<p>3 &gt; (2, 4) &gt; 1</p>
 </article>
           </div>
           

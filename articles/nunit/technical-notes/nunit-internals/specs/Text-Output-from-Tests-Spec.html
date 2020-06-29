@@ -73,7 +73,7 @@
 <h5>Note</h5>
 <p>This page is a specification that was used as a starting point for creating the feature in NUnit. It needs to be reviewed and revised in order to accurately reflect what was actually built. If you take it with a grain of salt, it may still be helpful to you as documentation. This notice will be removed when the page is brought up to date.</p>
 </div>
-<h4 id="background">Background</h4>
+<h2 id="background">Background</h2>
 <p>In the past, NUnit was able to capture text output (Console, Trace and Log) and associate it with the correct test. This was possible because only one test could run at a time, therefore any output received between the start and end of a particular test could be identified with that test.</p>
 <p>In an environment where multiple tests may be running at the same time, this is no longer possible. Let's say that NUnit has received the following messages, in order:</p>
 <ul>
@@ -84,29 +84,22 @@
 <li>End Test B</li>
 </ul>
 <p>In this situation, the text output might be from Test A or from Test B. NUnit cannot associate the output with a particular test, although it is possible that the user might be able to interpret the result based on the actual content of the text output.</p>
-<h4 id="approach">Approach</h4>
+<h2 id="approach">Approach</h2>
 <p>Since it does run tests in parallel, NUnit 3.0 needs a new approach to handling text output:</p>
 <ul>
-<li><p>The <code>TestResult</code> class will have a new string property, <code>Output</code>, holding text output associated with the individual test.</p>
-</li>
-<li><p>Console standard output will be captured and added to the test result.</p>
-</li>
-<li><p>A separate facility will be added to the NUnit <code>TestContext</code> to allow tests to write directly to the test result.</p>
+<li>The <code>TestResult</code> class will have a new string property, <code>Output</code>, holding text output associated with the individual test.</li>
+<li>Console standard output will be captured and added to the test result.</li>
+<li>A separate facility will be added to the NUnit <code>TestContext</code> to allow tests to write directly to the test result.
 <ul>
-<li><p><strong>TestContext.Out</strong> gets a <code>TextWriter</code> that may be used to write output to the TestResult.</p>
-</li>
-<li><p><strong>TestContext.Write(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</p>
-</li>
-<li><p><strong>TestContext.WriteLine(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</p>
-</li>
+<li><strong>TestContext.Out</strong> gets a <code>TextWriter</code> that may be used to write output to the TestResult.</li>
+<li><strong>TestContext.Write(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</li>
+<li><strong>TestContext.WriteLine(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</li>
 </ul>
 </li>
-<li><p>Trace and Log output will no longer be handled by NUnit at all.</p>
-</li>
-<li><p>Console error output will not be captured, but will display directly to the Console when using any of the console runners.</p>
-</li>
+<li>Trace and Log output will no longer be handled by NUnit at all.</li>
+<li>Console error output will not be captured, but will display directly to the Console when using any of the console runners.</li>
 </ul>
-<h4 id="impact-of-changes">Impact of Changes</h4>
+<h2 id="impact-of-changes">Impact of Changes</h2>
 <p>Standard output sent to the console will not display until the test completes. It will be clearly associated with the test if test labels are in use. If error output is redirected to a file either through the operating system or by using a command-line option then it will be written to the file. When running in the Gui, it will be available for display when the test is selected.</p>
 <p>Error output sent to the console will display immediately, provided a console is available. When running under the Gui or in another environment without a console attached, it will simply not appear. If error output is redirected to a file either through the operating system or by using a command-line option then it will be written to the file.</p>
 <p>Trace output will be processed in the normal way by .NET, depending on the configuration. NUnit will handle this output in any way or even be aware of it. This is how Trace is normally intended to work with a program.</p>

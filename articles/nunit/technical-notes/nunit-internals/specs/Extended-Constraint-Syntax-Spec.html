@@ -74,29 +74,29 @@
 <p>This is a draft. The contents may be out of date.</p>
 </div>
 <p>This specification is about a new syntax for expressing NUnit assertions using the features of .NET framework 3.5 including language improvements.  There are two key features this enables: Extension methods permit a modular, extensible fluent constraint syntax, and LINQ expression trees permit using plain C# (or VB) as a expression-based constraint language.</p>
-<h3 id="user-stories">User Stories</h3>
-<h6 id="fluent-constraint-syntax">Fluent Constraint Syntax</h6>
+<h2 id="user-stories">User Stories</h2>
+<h3 id="fluent-constraint-syntax">Fluent Constraint Syntax</h3>
 <ul>
 <li>A user expresses assertions in a fluent fashion</li>
 <li>A user extends NUnit's constraints without modifying NUnit</li>
 <li>An extension developer packages new constraints and their syntax in a single extension</li>
 </ul>
 <p>This improves NUnit by making extensibility easier.</p>
-<h6 id="expression-based-constraints">Expression-based Constraints</h6>
+<h3 id="expression-based-constraints">Expression-based Constraints</h3>
 <ul>
 <li>A user expresses assertions in C# or VB without needing to learn NUnit-specific constraints</li>
 <li>Any boolean expression convertible to an expression tree can form a constraint</li>
 <li>Failed assertions include detailed error messages such as sub-expression values - i.e. unlike Debug.Assert.</li>
 </ul>
 <p>This improves NUnit by making it easier to learn and less necessary to extend.</p>
-<h3 id="existing-implementations">Existing Implementations</h3>
+<h2 id="existing-implementations">Existing Implementations</h2>
 <p>There are already a couple of implementations implementing a fluent syntax or expression-based syntax or both:</p>
 <ul>
 <li>Extension Methods for NUnit: this is substantially an aliasing mechanism which, without touching the constraints themselves, provides a fluent way to express them</li>
 <li><a href="http://sharptestsex.codeplex.com">SharpTestsEx</a>: this is an improvement of <a href="http://code.google.com/p/nunitex/">NUnitEx</a> and provides an extension-method based constraint syntax in addition to a starting point for an expression-based mechanism of assertions.</li>
 <li><a href="http://code.google.com/p/expressiontocode/">ExpressionToCode</a>: this is an expression-based assertion library.  It is a reimplementation of <a href="http://powerassert.codeplex.com/">Power Assert .NET</a>, which is itself a port of <a href="https://dontmindthelanguage.wordpress.com/2009/12/11/groovy-1-7-power-assert/">Groovy's Power Assert</a>.</li>
 </ul>
-<h3 id="extensible-fluent-constraint-proposal">Extensible Fluent Constraint Proposal</h3>
+<h2 id="extensible-fluent-constraint-proposal">Extensible Fluent Constraint Proposal</h2>
 <p>Ideally we would like to be able to use a constraint syntax similar to the current fluent syntax that is extensible.  This requires using extension methods instead of static classes, as the following example demonstrates:</p>
 <pre><code class="lang-csharp">Assert.That(1, Is.GreaterThan(0))
 </code></pre>
@@ -117,28 +117,28 @@
 </thead>
 <tbody>
 <tr>
-<td>''true.Should().Be.True(); ''</td>
-<td>''Assert.That(true).Is.True''</td>
+<td><code>true.Should().Be.True();</code></td>
+<td><code>Assert.That(true).Is.True</code></td>
 </tr>
 <tr>
-<td>''&quot;something&quot;.Should().Contain(&quot;some&quot;);''</td>
-<td>''Assert.That(&quot;something&quot;).Contains(&quot;some&quot;) ''</td>
+<td><code>&quot;something&quot;.Should().Contain(&quot;some&quot;);</code></td>
+<td><code>Assert.That(&quot;something&quot;).Contains(&quot;some&quot;)</code></td>
 </tr>
 <tr>
-<td>''&quot;something&quot;.Should().StartWith(&quot;so&quot;).And.EndWith(&quot;ing&quot;)''</td>
-<td>''Assert.That(&quot;something&quot;).StartsWith(&quot;so&quot;).And.EndsWith(&quot;ing&quot;) ''</td>
+<td><code>&quot;something&quot;.Should().StartWith(&quot;so&quot;).And.EndWith(&quot;ing&quot;)</code></td>
+<td><code>Assert.That(&quot;something&quot;).StartsWith(&quot;so&quot;).And.EndsWith(&quot;ing&quot;)</code></td>
 </tr>
 <tr>
-<td>''new[] { 1, 2, 3 }.Should().Have.SameSequenceAs(new[] { 1, 2, 3 });''</td>
-<td>''Assert.That(new[] { 1, 2, 3 }).Is.EquivalentTo(new[] { 1, 2, 3 })''</td>
+<td><code>new[] { 1, 2, 3 }.Should().Have.SameSequenceAs(new[] { 1, 2, 3 });</code></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }).Is.EquivalentTo(new[] { 1, 2, 3 })</code></td>
 </tr>
 <tr>
-<td>''%%ActionAssert.Throws<argumentexception>(() =&gt; new SillyClass(null))%% ''</argumentexception></td>
-<td>''%%Assert.That(() =&gt; new SillyClass(null)).Throws<argumentexception>()%%''</argumentexception></td>
+<td><code>%%ActionAssert.Throws&lt;ArgumentException&gt;(() =&gt; new SillyClass(null))%%</code></td>
+<td><code>%%Assert.That(() =&gt; new SillyClass(null)).Throws&lt;ArgumentException&gt;()%%</code></td>
 </tr>
 </tbody>
 </table>
-<h4 id="unresolved-issues">Unresolved Issues</h4>
+<h2 id="unresolved-issues">Unresolved Issues</h2>
 <p>How would the following actually work?</p>
 <pre><code class="lang-csharp">Assert.That(“something”).StartsWith(“so”).Or.EndsWith(“ing”);
 </code></pre>
@@ -148,13 +148,13 @@
 temp.Or.EndsWith(“ing”);
 </code></pre>
 <p>Extension methods can lead to namespace pollution; in particular if defined on ''object'' (which we therefore should try to avoid).</p>
-<h3 id="expression-based-constraint-proposal">Expression Based Constraint Proposal</h3>
+<h2 id="expression-based-constraint-proposal">Expression Based Constraint Proposal</h2>
 <p>NUnit provides a wealth of constraints. This means that knowing how to expression non-trivial constraints isn't always easy (particularly for new or casual users).  Finding the appropriate constraint (or combination of constraints) requires knowledge NUnit's many constraints, and the semantics of a particular constraint may not be clear without reading the documentation.</p>
 <p>For example, consider the assertion (valid for many uppercase strings, for most cultures):</p>
 <pre><code class="lang-csharp">Assert.That(() =&gt; x == x.ToLower().ToUpper());
 </code></pre>
 <p>This expression can be expressed as a standard equality constraint, but doing so means not showing the intermediate steps in the computation.  Using expression trees, a failure could be rendered as:</p>
-<pre><code>Assert.That failed for:
+<pre><code class="lang-none">Assert.That failed for:
 
 x == x.ToLower().ToUpper()
 |  | |    |         |
