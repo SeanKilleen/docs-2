@@ -30911,11 +30911,35 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/nunit/running-tests/Index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nunit/running-tests/Index.html",
+          "hash": "X/l/4Z6jGxSgQ2TNXJueLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/nunit/running-tests/NUnit-Test-Projects.md",
       "output": {
         ".html": {
           "relative_path": "articles/nunit/running-tests/NUnit-Test-Projects.html",
           "hash": "FHh7el9gGuQZGoZ2rw4/Mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nunit/running-tests/NUnitLite-Options.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nunit/running-tests/NUnitLite-Options.html",
+          "hash": "3XuKnuwGnD75g9819IX2rw=="
         }
       },
       "is_incremental": false,
@@ -31251,7 +31275,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nunit/technical-notes/usage/Assembly-Isolation.html",
-          "hash": "PjkyOMEc/5ko0wNUaigBTQ=="
+          "hash": "DyZzNwRfHJybnj0YQ1DevQ=="
         }
       },
       "is_incremental": false,
@@ -31263,7 +31287,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nunit/technical-notes/usage/Configuration-Files.html",
-          "hash": "yyvSwnvEtKT59YTyRGRIYQ=="
+          "hash": "7ern0PkSZZ8N+9jBzTOtYQ=="
         }
       },
       "is_incremental": false,
@@ -31347,7 +31371,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nunit/technical-notes/usage/Runtime-Selection.html",
-          "hash": "z7gZ+SDAzgECc2JD/3vrxg=="
+          "hash": "eGp/GFX6GaE/iLQeDLR1Xg=="
         }
       },
       "is_incremental": false,
@@ -31407,7 +31431,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nunit/technical-notes/usage/Visual-Studio-Support.html",
-          "hash": "Shcn9+rAGNozmVrLTSseHg=="
+          "hash": "Lya5jdWmNfFoa943CHSbpg=="
         }
       },
       "is_incremental": false,
@@ -33267,7 +33291,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "jwHhNt9uM/6Sd5N+xxG2HQ=="
+          "hash": "bi6k32TXD5vehvtsTt8rtQ=="
         }
       },
       "is_incremental": false,
@@ -34097,7 +34121,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 299,
+          "total_file_count": 301,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
