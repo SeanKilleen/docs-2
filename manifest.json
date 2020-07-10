@@ -30935,18 +30935,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/nunit/running-tests/NUnitLite-Options.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/nunit/running-tests/NUnitLite-Options.html",
-          "hash": "3XuKnuwGnD75g9819IX2rw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "articles/nunit/running-tests/NUnitLite-Runner.md",
       "output": {
         ".html": {
@@ -33291,7 +33279,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "bi6k32TXD5vehvtsTt8rtQ=="
+          "hash": "zotZ1I7I8vn65lTc20zqLA=="
         }
       },
       "is_incremental": false,
@@ -34121,7 +34109,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 301,
+          "total_file_count": 300,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
