@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="ResultWriters">
 <h1 id="result-writers">Result Writers</h1>
 
-<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3.0 XML format, and use it to create a result file in some other format. NUnit itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
+<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
 <pre><code class="lang-csharp">[Extension]
 [ExtensionProperty(&quot;Format&quot;, &quot;custom&quot;)]
 public class CustomResultWriterFactory : IResultWriter
@@ -87,10 +87,10 @@ public class CustomResultWriterFactory : IResultWriter
     /* ... */
 }
 </code></pre>
-<p>You must provide an <code>ExtensionPropertyAttribute</code> giving the name of the format you support. Users would access your format from the nunit-console command-line by using that name in a result specification, like</p>
+<p>An <code>ExtensionPropertyAttribute</code> must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:</p>
 <pre><code class="lang-cmd">   nunit-console test.dll --result=CustomResult.xml;format=custom
 </code></pre>
-<p>The <code>IResultWriter</code> interface, which you must implement, is defined as follows:</p>
+<p>The <code>IResultWriter</code> interface which must be implemented, is defined as follows:</p>
 <pre><code class="lang-csharp">/// &lt;summary&gt;
 /// Common interface for objects that process and write out test results
 /// &lt;/summary&gt;
@@ -102,7 +102,7 @@ public interface IResultWriter
     /// Checks if the output path is writable. If the output is not
     /// writable, this method should throw an exception.
     /// &lt;/summary&gt;
-    /// &lt;param name=&quot;outputPath&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;outputPath&quot;&gt;Path to test&lt;/param&gt;
     void CheckWritability(string outputPath);
 
     /// &lt;summary&gt;
@@ -129,7 +129,7 @@ public interface IResultWriter
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/SeanKilleen/docs-2/blob/master/docs/articles/nunit/extending-nunit/Result-Writers.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/SeanKilleen/docs-2/blob/master/docs/articles/nunit-engine/extensions/Result-Writers.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
