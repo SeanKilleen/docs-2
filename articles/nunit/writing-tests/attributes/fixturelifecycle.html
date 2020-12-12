@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Throws Constraint | NUnit Docs </title>
+    <title>FixtureLifeCycle | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Throws Constraint | NUnit Docs ">
+    <meta name="title" content="FixtureLifeCycle | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -76,66 +76,50 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="throwsconstraint">
-<h1 id="throws-constraint">Throws Constraint</h1>
+            <article class="content wrap" id="_content" data-uid="fixturelifecycleattribute">
+<h1 id="fixturelifecycle">FixtureLifeCycle</h1>
 
-<p><code>ThrowsConstraint</code> is used to test that some code, represented as a delegate,
-throws a particular exception. It may be used alone, to merely test the type
-of constraint, or with an additional constraint to be applied to the exception
-specified as an argument.</p>
-<p>The related <a href="ThrowsNothingConstraint.html">ThrowsNothingConstraint</a> simply asserts that the delegate
-does not throw an exception.</p>
-<h2 id="constructors">Constructors</h2>
-<pre><code class="lang-csharp">ThrowsConstraint(Type expectedType)
-ThrowsConstraint&lt;T&gt;()
-ThrowsConstraint(Type expectedType, Constraint constraint)
-ThrowsConstraint&lt;T&gt;(Constraint constraint)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Throws.Exception
-Throws.TargetInvocationException
-Throws.ArgumentException
-Throws.ArgumentNullException
-Throws.InvalidOperationException
-Throws.TypeOf(Type expectedType)
-Throws.TypeOf&lt;T&gt;()
-Throws.InstanceOf(Type expectedType)
-Throws.InstanceOf&lt;T&gt;()
-Throws.InnerException
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;());
-Assert.That(SomeMethod, Throws.Exception.TypeOf&lt;ArgumentException&gt;());
-Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;()
-                    .With.Property(&quot;Parameter&quot;).EqualTo(&quot;myParam&quot;));
-Assert.That(SomeMethod, Throws.ArgumentException);
-Assert.That(SomeMethod, Throws.TargetInvocationException
-                    .With.InnerException.TypeOf&lt;ArgumentException&gt;());
-Assert.That(() =&gt; { throw new ArgumentException(); }, Throws.ArgumentException);
-</code></pre>
+<p>Added in <strong>NUnit 3.13</strong></p>
+<p>The <code>FixtureLifeCycleAttribute</code> is used to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.</p>
+<p>This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the <a href="parallelizable.html">Parallelizable Attribute</a> so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.</p>
+<p>This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden at the class level.</p>
+<h2 id="lifecycle-enumeration">LifeCycle Enumeration</h2>
+<p>The constructor of <code>FixtureLifeCycleAttribute</code> takes a <code>LifeCycle</code> attribute to indicate if a single instance of a test fixture should be created for all tests or if a new instance should be created for each test.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LifeCycle.SingleInstance</code></td>
+<td>A single instance is created and shared for all test cases</td>
+</tr>
+<tr>
+<td><code>LifeCycle.InstancePerTestCase</code></td>
+<td>A new instance is created for each test case</td>
+</tr>
+</tbody>
+</table>
 <h2 id="notes">Notes</h2>
-<ol>
-<li><p><strong>Throws.Exception</strong> may be followed by further constraints,
-which are applied to the exception itself as shown in the last two
-examples above. It may also be used alone to verify that some
-exception has been thrown, without regard to type. This is
-not a recommended practice since you should normally know
-what exception you are expecting.</p>
+<ul>
+<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> and <a class="xref" href="onetimeteardown.html"><code>OneTimeTearDown</code></a> methods must be static, and each are only called once. This is required so that the setup or teardown methods do not access instance fields or properties that are reset for every test.</p>
 </li>
-<li><p><strong>Throws.TypeOf</strong> and <strong>Throws.InstanceOf</strong> are provided
-as a shorter syntax for this common test. They work exactly like
-the corresponding forms following <strong>Throws.Exception</strong>.</p>
+<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, a class's constructor will be called before every test is executed and <code>IDisposable</code> test fixtures will be disposed after the test is finished.</p>
 </li>
-<li><p><strong>Throws.TargetInvocationException</strong>, <strong>Throws.ArgumentException</strong>
-and <strong>Throws.InvalidOperationException</strong> provide a shortened form
-for some common exceptions.</p>
+<li><p><a class="xref" href="setup.html"><code>SetUp</code></a> and <a class="xref" href="teardown.html"><code>TearDown</code></a> methods are called before and after every test.</p>
 </li>
-<li><p>Used alone, <strong>Throws.InnerException</strong> simply tests the InnerException
-value of the thrown exception. More commonly, it will be used in
-combination with a test for the type of the outer exception as shown
-in the examples above.</p>
+<li><p>The <code>Order</code> attribute is respected.</p>
 </li>
-</ol>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="parallelizable.html">Parallelizable Attribute</a></li>
+<li><a class="xref" href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
+<li><a class="xref" href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
+</ul>
 </article>
           </div>
           
@@ -144,7 +128,7 @@ in the examples above.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/SeanKilleen/docs-2/blob/master/docs/articles/nunit/writing-tests/constraints/ThrowsConstraint.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/SeanKilleen/docs-2/blob/master/docs/articles/nunit/writing-tests/attributes/fixturelifecycle.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
